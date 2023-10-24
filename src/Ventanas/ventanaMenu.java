@@ -35,7 +35,7 @@ public class ventanaMenu extends javax.swing.JFrame {
         opcionHistorial = new javax.swing.JMenuItem();
         opcionConsultaTema = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jMenu1.setText("Opciones");
 
@@ -116,7 +116,7 @@ public class ventanaMenu extends javax.swing.JFrame {
             .addGap(0, 277, Short.MAX_VALUE)
         );
 
-        pack();
+        setBounds(0, 0, 414, 337);
     }// </editor-fold>//GEN-END:initComponents
 
     private void opcionRegistroTemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionRegistroTemaActionPerformed
