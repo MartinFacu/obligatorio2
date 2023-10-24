@@ -12,5 +12,37 @@ public class Entrevista {
         this.puntaje = unPuntaje;
         this.comentarios = unosComentarios;
     }
+
+    public Entrevistador getEntrevistador() {
+        return entrevistador;
+    }
+
+    public void setEntrevistador(Entrevistador entrevistador) {
+        this.entrevistador = entrevistador;
+    }
+
+    public Postulante getPostulante() {
+        return postulante;
+    }
+
+    public void setPostulante(Postulante postulante) {
+        this.postulante = postulante;
+    }
+
+    public int getPuntaje() {
+        return puntaje;
+    }
+
+    public void setPuntaje(int puntaje) {
+        this.puntaje = puntaje;
+    }
+
+    public String getComentarios() {
+        return comentarios;
+    }
+
+    public void setComentarios(String comentarios) {
+        this.comentarios = comentarios;
+    }
     
 }
