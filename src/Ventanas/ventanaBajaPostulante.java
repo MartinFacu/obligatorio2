@@ -27,33 +27,38 @@ public class ventanaBajaPostulante extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        etiqTitBajaPostulante = new javax.swing.JLabel();
+        etiqPostulantesBajaPostulante = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        listPostulantesBajaPostulante = new javax.swing.JList<>();
+        butCancelarBajaPostulante = new javax.swing.JButton();
+        butAplicarBajaPostulante = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel3.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        jLabel3.setText("Baja Postulante");
+        etiqTitBajaPostulante.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        etiqTitBajaPostulante.setText("Baja Postulante");
 
-        jLabel4.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jLabel4.setText("Postulantes");
+        etiqPostulantesBajaPostulante.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        etiqPostulantesBajaPostulante.setText("Postulantes");
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        listPostulantesBajaPostulante.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(listPostulantesBajaPostulante);
 
-        jButton1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jButton1.setText("Cancelar");
+        butCancelarBajaPostulante.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        butCancelarBajaPostulante.setText("Cancelar");
+        butCancelarBajaPostulante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butCancelarBajaPostulanteActionPerformed(evt);
+            }
+        });
 
-        jButton2.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jButton2.setText("Aplicar");
+        butAplicarBajaPostulante.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        butAplicarBajaPostulante.setText("Aplicar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -63,16 +68,16 @@ public class ventanaBajaPostulante extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(112, 112, 112)
-                        .addComponent(jLabel3))
+                        .addComponent(etiqTitBajaPostulante))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(etiqPostulantesBajaPostulante, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(butCancelarBajaPostulante, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(butAplicarBajaPostulante, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(52, Short.MAX_VALUE))
         );
@@ -80,15 +85,15 @@ public class ventanaBajaPostulante extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(etiqTitBajaPostulante, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addComponent(jLabel4)
+                .addComponent(etiqPostulantesBajaPostulante)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(butCancelarBajaPostulante)
+                    .addComponent(butAplicarBajaPostulante))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
@@ -106,18 +111,22 @@ public class ventanaBajaPostulante extends javax.swing.JFrame {
         setBounds(0, 0, 421, 413);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void butCancelarBajaPostulanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butCancelarBajaPostulanteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_butCancelarBajaPostulanteActionPerformed
+
     /**
      * @param args the command line arguments
      */
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JList<String> jList1;
+    private javax.swing.JButton butAplicarBajaPostulante;
+    private javax.swing.JButton butCancelarBajaPostulante;
+    private javax.swing.JLabel etiqPostulantesBajaPostulante;
+    private javax.swing.JLabel etiqTitBajaPostulante;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<String> listPostulantesBajaPostulante;
     // End of variables declaration//GEN-END:variables
 }

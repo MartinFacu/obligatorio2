@@ -13,48 +13,48 @@ public class ventanaAltaPostulante extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        etiqNombreAltaPostulante = new javax.swing.JLabel();
+        etiqTitAltaPostulante = new javax.swing.JLabel();
+        etiqCedulaAltaPostulante = new javax.swing.JLabel();
+        etiqDireccionAltaPostulante = new javax.swing.JLabel();
+        etiqTelefonoAltaPostulante = new javax.swing.JLabel();
+        etiqMailAltaPostulante = new javax.swing.JLabel();
+        etiqLinkedinAltaPostulante = new javax.swing.JLabel();
         txtMailAltaPostulante = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
+        etiqFormatoAltaPostulante = new javax.swing.JLabel();
         txtNombreAltaPostulante = new javax.swing.JTextField();
         txtCedulaAltaPostulante = new javax.swing.JTextField();
         txtDireccionAltaPostulante = new javax.swing.JTextField();
         txtTelefonoAltaPostulante = new javax.swing.JTextField();
         txtLinkedinAltaPostulante = new javax.swing.JTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        radbutRemotoAltaPostulante = new javax.swing.JRadioButton();
+        radbutPresencialAltaPostulante = new javax.swing.JRadioButton();
+        radbutMixtoAltaPostulante = new javax.swing.JRadioButton();
+        butCancelarAltaPostulante = new javax.swing.JButton();
+        butSiguienteAltaPostulante = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jLabel1.setText("Nombre:");
+        etiqNombreAltaPostulante.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        etiqNombreAltaPostulante.setText("Nombre:");
 
-        jLabel2.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        jLabel2.setText("Alta Postulante");
+        etiqTitAltaPostulante.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        etiqTitAltaPostulante.setText("Alta Postulante");
 
-        jLabel3.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jLabel3.setText("Cedula:");
+        etiqCedulaAltaPostulante.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        etiqCedulaAltaPostulante.setText("Cedula:");
 
-        jLabel4.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jLabel4.setText("Direccion:");
+        etiqDireccionAltaPostulante.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        etiqDireccionAltaPostulante.setText("Direccion:");
 
-        jLabel5.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jLabel5.setText("Telefono:");
+        etiqTelefonoAltaPostulante.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        etiqTelefonoAltaPostulante.setText("Telefono:");
 
-        jLabel6.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jLabel6.setText("Mail:");
+        etiqMailAltaPostulante.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        etiqMailAltaPostulante.setText("Mail:");
 
-        jLabel7.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jLabel7.setText("Linkedin:");
+        etiqLinkedinAltaPostulante.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        etiqLinkedinAltaPostulante.setText("Linkedin:");
 
         txtMailAltaPostulante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,8 +62,8 @@ public class ventanaAltaPostulante extends javax.swing.JFrame {
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jLabel8.setText("Formato:");
+        etiqFormatoAltaPostulante.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        etiqFormatoAltaPostulante.setText("Formato:");
 
         txtNombreAltaPostulante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,28 +89,28 @@ public class ventanaAltaPostulante extends javax.swing.JFrame {
             }
         });
 
-        jRadioButton1.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jRadioButton1.setText("Remoto");
+        radbutRemotoAltaPostulante.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        radbutRemotoAltaPostulante.setText("Remoto");
 
-        jRadioButton2.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jRadioButton2.setText("Presencial");
+        radbutPresencialAltaPostulante.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        radbutPresencialAltaPostulante.setText("Presencial");
 
-        jRadioButton3.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jRadioButton3.setText("Mixto");
+        radbutMixtoAltaPostulante.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        radbutMixtoAltaPostulante.setText("Mixto");
 
-        jButton1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        jButton1.setText("Cancelar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        butCancelarAltaPostulante.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        butCancelarAltaPostulante.setText("Cancelar");
+        butCancelarAltaPostulante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                butCancelarAltaPostulanteActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        jButton2.setText("Siguiente");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        butSiguienteAltaPostulante.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        butSiguienteAltaPostulante.setText("Siguiente");
+        butSiguienteAltaPostulante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                butSiguienteAltaPostulanteActionPerformed(evt);
             }
         });
 
@@ -120,34 +120,34 @@ public class ventanaAltaPostulante extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(jButton1)
+                .addComponent(butCancelarAltaPostulante)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(butSiguienteAltaPostulante)
                 .addGap(66, 66, 66))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(etiqFormatoAltaPostulante, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
-                        .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(radbutRemotoAltaPostulante, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(radbutPresencialAltaPostulante, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(52, 52, 52)
-                        .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(radbutMixtoAltaPostulante, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 26, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(etiqNombreAltaPostulante, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(etiqDireccionAltaPostulante, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                            .addComponent(etiqCedulaAltaPostulante, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(etiqTelefonoAltaPostulante, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(etiqMailAltaPostulante, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(etiqLinkedinAltaPostulante, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(116, 116, 116)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(etiqTitAltaPostulante, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,41 +163,41 @@ public class ventanaAltaPostulante extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jLabel2)
+                .addComponent(etiqTitAltaPostulante)
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(etiqNombreAltaPostulante, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNombreAltaPostulante, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(etiqCedulaAltaPostulante, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCedulaAltaPostulante, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(etiqDireccionAltaPostulante, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtDireccionAltaPostulante, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                    .addComponent(etiqTelefonoAltaPostulante)
                     .addComponent(txtTelefonoAltaPostulante, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
+                    .addComponent(etiqMailAltaPostulante)
                     .addComponent(txtMailAltaPostulante, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
+                    .addComponent(etiqLinkedinAltaPostulante)
                     .addComponent(txtLinkedinAltaPostulante, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3))
+                    .addComponent(etiqFormatoAltaPostulante)
+                    .addComponent(radbutRemotoAltaPostulante)
+                    .addComponent(radbutPresencialAltaPostulante)
+                    .addComponent(radbutMixtoAltaPostulante))
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(butCancelarAltaPostulante, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(butSiguienteAltaPostulante, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23))
         );
 
@@ -235,32 +235,32 @@ public class ventanaAltaPostulante extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreAltaPostulanteActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void butCancelarAltaPostulanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butCancelarAltaPostulanteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_butCancelarAltaPostulanteActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void butSiguienteAltaPostulanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butSiguienteAltaPostulanteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_butSiguienteAltaPostulanteActionPerformed
 
 
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JButton butCancelarAltaPostulante;
+    private javax.swing.JButton butSiguienteAltaPostulante;
+    private javax.swing.JLabel etiqCedulaAltaPostulante;
+    private javax.swing.JLabel etiqDireccionAltaPostulante;
+    private javax.swing.JLabel etiqFormatoAltaPostulante;
+    private javax.swing.JLabel etiqLinkedinAltaPostulante;
+    private javax.swing.JLabel etiqMailAltaPostulante;
+    private javax.swing.JLabel etiqNombreAltaPostulante;
+    private javax.swing.JLabel etiqTelefonoAltaPostulante;
+    private javax.swing.JLabel etiqTitAltaPostulante;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton radbutMixtoAltaPostulante;
+    private javax.swing.JRadioButton radbutPresencialAltaPostulante;
+    private javax.swing.JRadioButton radbutRemotoAltaPostulante;
     private javax.swing.JTextField txtCedulaAltaPostulante;
     private javax.swing.JTextField txtDireccionAltaPostulante;
     private javax.swing.JTextField txtLinkedinAltaPostulante;
