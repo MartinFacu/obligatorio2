@@ -12,7 +12,6 @@ public class ventanaAltaPostulante extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -90,10 +89,13 @@ public class ventanaAltaPostulante extends javax.swing.JFrame {
             }
         });
 
+        jRadioButton1.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         jRadioButton1.setText("Remoto");
 
+        jRadioButton2.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         jRadioButton2.setText("Presencial");
 
+        jRadioButton3.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         jRadioButton3.setText("Mixto");
 
         jButton1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
@@ -245,7 +247,6 @@ public class ventanaAltaPostulante extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
