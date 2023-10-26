@@ -17,6 +17,13 @@ public class Sistema {
         this.entrevistadores = entrevistadores;
         this.postulantes = postulantes;
     }
+    
+    public Sistema(){    
+        this.entrevistas = new ArrayList<Entrevista>();
+        this.puestos = new ArrayList<Puesto>();
+        this.entrevistadores = new ArrayList<Entrevistador>();
+        this.postulantes = new ArrayList<Postulante>();;
+    }
 
     public ArrayList<Entrevista> getEntrevistas() {
         return entrevistas;
