@@ -1,7 +1,7 @@
 package zFuncionamiento;
 import Ventanas.*;
 import Main.*;
-import java.util.ArrayList;
+import java.util.*;
 public class Postulante {
     private String nombre;
     private int cedula;
@@ -10,8 +10,9 @@ public class Postulante {
     private String mail;
     private String linkedin;
     private String formato;
+    private HashMap<Tematica, Integer> temas;
     
-    public Postulante(String unFormato, String unLinkedin, String unMail, int unNumCel, String unaDireccion, int unaCedula, String unNombre){
+    public Postulante(String unFormato, String unLinkedin, String unMail, int unNumCel, String unaDireccion, int unaCedula, String unNombre,HashMap<Tematica, Integer> unosTemas){
         this.nombre = unNombre;
         this.formato = unFormato;
         this.linkedin = unLinkedin;
@@ -19,6 +20,7 @@ public class Postulante {
         this.numCel = unNumCel;
         this.direccion = unaDireccion;
         this.cedula = unaCedula;
+        this.temas = unosTemas;
     }
 
     public String getNombre() {
@@ -77,4 +79,11 @@ public class Postulante {
         this.formato = formato;
     }
     
+    public void addTema(Tematica unTema, int nivel){
+        this.temas.put(unTema, nivel);
+    }
+
+    public HashMap<Tematica, Integer> getTemas() {
+        return temas;
+    }
 }

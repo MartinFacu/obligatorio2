@@ -4,6 +4,7 @@ public class ventanaAltaPostulante extends javax.swing.JFrame {
 
 
     public ventanaAltaPostulante(Sistema unSistema) {
+        Sistema modelo = unSistema;
         initComponents();
     }
 
@@ -92,11 +93,14 @@ public class ventanaAltaPostulante extends javax.swing.JFrame {
 
         buttonGroup1.add(radbutRemotoAltaPostulante);
         radbutRemotoAltaPostulante.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        radbutRemotoAltaPostulante.setSelected(true);
         radbutRemotoAltaPostulante.setText("Remoto");
 
+        buttonGroup1.add(radbutPresencialAltaPostulante);
         radbutPresencialAltaPostulante.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         radbutPresencialAltaPostulante.setText("Presencial");
 
+        buttonGroup1.add(radbutMixtoAltaPostulante);
         radbutMixtoAltaPostulante.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         radbutMixtoAltaPostulante.setText("Mixto");
 
@@ -242,7 +246,14 @@ public class ventanaAltaPostulante extends javax.swing.JFrame {
     }//GEN-LAST:event_butCancelarAltaPostulanteActionPerformed
 
     private void butSiguienteAltaPostulanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butSiguienteAltaPostulanteActionPerformed
-        // TODO add your handling code here:
+        String unLinkedin = txtLinkedinAltaPostulante.getText();
+        String unMail = txtMailAltaPostulante.getText();
+        int unNumCel = Integer.parseInt(txtTelefonoAltaPostulante.getText());
+        String unaDirec = txtDireccionAltaPostulante.getText();
+        int unaCed = Integer.parseInt(txtCedulaAltaPostulante.getText());
+        String unNombre = txtNombreAltaPostulante.getText();
+        
+        //Postulante postulante = new Postulante(txt);
     }//GEN-LAST:event_butSiguienteAltaPostulanteActionPerformed
 
 
