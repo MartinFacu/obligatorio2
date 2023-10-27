@@ -1,4 +1,5 @@
 package Ventanas;
+import java.util.HashMap;
 import zFuncionamiento.*;
 public class ventanaAltaPostulante extends javax.swing.JFrame {
 
@@ -252,7 +253,7 @@ public class ventanaAltaPostulante extends javax.swing.JFrame {
         String unaDirec = txtDireccionAltaPostulante.getText();
         int unaCed = Integer.parseInt(txtCedulaAltaPostulante.getText());
         String unNombre = txtNombreAltaPostulante.getText();
-        
+        HashMap<Tematica, Integer> unosTemas = new HashMap<Tematica, Integer>();
         //Postulante postulante = new Postulante(txt);
     }//GEN-LAST:event_butSiguienteAltaPostulanteActionPerformed
 
