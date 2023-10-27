@@ -27,56 +27,56 @@ public class ventanaConsultaPuesto extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        etiqTitConsutarPuesto = new javax.swing.JLabel();
+        etiqPuestosConsutarPuesto = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        jSpinner1 = new javax.swing.JSpinner();
-        jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        listPuestosConsutarPuesto = new javax.swing.JList<>();
+        spinnNivelConsutarPuesto = new javax.swing.JSpinner();
+        etiqNivelConsutarPuesto = new javax.swing.JLabel();
+        butConsularConsutarPuesto = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
-        jLabel4 = new javax.swing.JLabel();
+        etiqPostulantesConsutarPuesto = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        listPostulantesConsutarPuesto = new javax.swing.JList<>();
+        butCancelarConsutarPuesto = new javax.swing.JButton();
+        butExportarConsutarPuesto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        jLabel1.setText("Consulta Puesto");
+        etiqTitConsutarPuesto.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        etiqTitConsutarPuesto.setText("Consulta Puesto");
 
-        jLabel2.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jLabel2.setText("Puestos");
+        etiqPuestosConsutarPuesto.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        etiqPuestosConsutarPuesto.setText("Puestos");
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        listPuestosConsutarPuesto.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(listPuestosConsutarPuesto);
 
-        jLabel3.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jLabel3.setText("Nivel");
+        etiqNivelConsutarPuesto.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        etiqNivelConsutarPuesto.setText("Nivel");
 
-        jButton1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jButton1.setText("Consultar");
+        butConsularConsutarPuesto.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        butConsularConsutarPuesto.setText("Consultar");
 
-        jLabel4.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jLabel4.setText("Postulantes");
+        etiqPostulantesConsutarPuesto.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        etiqPostulantesConsutarPuesto.setText("Postulantes");
 
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+        listPostulantesConsutarPuesto.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane2.setViewportView(jList2);
+        jScrollPane2.setViewportView(listPostulantesConsutarPuesto);
 
-        jButton2.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jButton2.setText("Cancelar");
+        butCancelarConsutarPuesto.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        butCancelarConsutarPuesto.setText("Cancelar");
 
-        jButton3.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jButton3.setText("Exportar");
+        butExportarConsutarPuesto.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        butExportarConsutarPuesto.setText("Exportar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -84,25 +84,25 @@ public class ventanaConsultaPuesto extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(etiqTitConsutarPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(154, 154, 154))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(butCancelarConsutarPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(butExportarConsutarPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(etiqPostulantesConsutarPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(etiqNivelConsutarPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(spinnNivelConsutarPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(butConsularConsutarPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(etiqPuestosConsutarPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator1))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
@@ -110,26 +110,26 @@ public class ventanaConsultaPuesto extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(etiqTitConsutarPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
+                .addComponent(etiqPuestosConsutarPuesto)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(etiqNivelConsutarPuesto)
+                    .addComponent(spinnNivelConsutarPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(butConsularConsutarPuesto))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
+                .addComponent(etiqPostulantesConsutarPuesto)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(butCancelarConsutarPuesto)
+                    .addComponent(butExportarConsutarPuesto))
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
@@ -155,19 +155,19 @@ public class ventanaConsultaPuesto extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
+    private javax.swing.JButton butCancelarConsutarPuesto;
+    private javax.swing.JButton butConsularConsutarPuesto;
+    private javax.swing.JButton butExportarConsutarPuesto;
+    private javax.swing.JLabel etiqNivelConsutarPuesto;
+    private javax.swing.JLabel etiqPostulantesConsutarPuesto;
+    private javax.swing.JLabel etiqPuestosConsutarPuesto;
+    private javax.swing.JLabel etiqTitConsutarPuesto;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JList<String> listPostulantesConsutarPuesto;
+    private javax.swing.JList<String> listPuestosConsutarPuesto;
+    private javax.swing.JSpinner spinnNivelConsutarPuesto;
     // End of variables declaration//GEN-END:variables
 }
