@@ -44,5 +44,10 @@ public class Entrevista {
     public void setComentarios(String comentarios) {
         this.comentarios = comentarios;
     }
+
+    @Override
+    public String toString() {
+        return "Entrevista{" + "entrevistador=" + entrevistador + ", postulante=" + postulante + ", puntaje=" + puntaje + ", comentarios=" + comentarios + "}";
+    }
     
 }

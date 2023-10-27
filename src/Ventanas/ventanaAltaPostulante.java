@@ -12,6 +12,7 @@ public class ventanaAltaPostulante extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         etiqNombreAltaPostulante = new javax.swing.JLabel();
         etiqTitAltaPostulante = new javax.swing.JLabel();
@@ -89,6 +90,7 @@ public class ventanaAltaPostulante extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(radbutRemotoAltaPostulante);
         radbutRemotoAltaPostulante.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         radbutRemotoAltaPostulante.setText("Remoto");
 
@@ -249,6 +251,7 @@ public class ventanaAltaPostulante extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butCancelarAltaPostulante;
     private javax.swing.JButton butSiguienteAltaPostulante;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel etiqCedulaAltaPostulante;
     private javax.swing.JLabel etiqDireccionAltaPostulante;
     private javax.swing.JLabel etiqFormatoAltaPostulante;
