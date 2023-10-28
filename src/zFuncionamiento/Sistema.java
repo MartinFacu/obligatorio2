@@ -10,21 +10,35 @@ public class Sistema {
     private ArrayList<Puesto> puestos;
     private ArrayList<Entrevistador> entrevistadores;
     private ArrayList<Postulante> postulantes;
+    private ArrayList<Tematica> tematicas;
 
-    public Sistema(ArrayList<Entrevista> entrevistas, ArrayList<Puesto> puestos, ArrayList<Entrevistador> entrevistadores, ArrayList<Postulante> postulantes) {
+    public Sistema(ArrayList<Entrevista> entrevistas, ArrayList<Puesto> puestos, ArrayList<Entrevistador> entrevistadores, ArrayList<Postulante> postulantes, ArrayList<Tematica> tematicas) {
         this.entrevistas = entrevistas;
         this.puestos = puestos;
         this.entrevistadores = entrevistadores;
         this.postulantes = postulantes;
+        this.tematicas = tematicas;
     }
+
+    
     
     public Sistema(){    
         this.entrevistas = new ArrayList<Entrevista>();
         this.puestos = new ArrayList<Puesto>();
         this.entrevistadores = new ArrayList<Entrevistador>();
-        this.postulantes = new ArrayList<Postulante>();;
+        this.postulantes = new ArrayList<Postulante>();
+        this.tematicas = new ArrayList<Tematica>();
     }
 
+    public ArrayList<Tematica> getTematicas() {
+        return tematicas;
+    }
+
+    public void setTematicas(ArrayList<Tematica> tematicas) {
+        this.tematicas = tematicas;
+    }
+    
+    
     public ArrayList<Entrevista> getEntrevistas() {
         return entrevistas;
     }
@@ -65,6 +79,11 @@ public class Sistema {
                 this.postulantes.remove(i);
             }
         }
+    }
+    
+    public void agregarUnaTematica(Tematica unTema){
+        this.tematicas.add(unTema);
+        System.out.println("tema ingresado");
     }
     
 }

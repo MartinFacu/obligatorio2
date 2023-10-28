@@ -120,7 +120,8 @@ public class ventanaMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void opcionRegistroTemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionRegistroTemaActionPerformed
-        // TODO add your handling code here:
+        ventanaRegistroTema ventRegistroTema = new ventanaRegistroTema(modelo); 
+        ventRegistroTema.setVisible(true);
     }//GEN-LAST:event_opcionRegistroTemaActionPerformed
 
     private void opcionRegistroEvaluadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionRegistroEvaluadorActionPerformed

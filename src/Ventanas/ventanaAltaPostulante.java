@@ -1,12 +1,14 @@
 package Ventanas;
 import java.util.HashMap;
+import javax.swing.ButtonModel;
+import javax.swing.JRadioButton;
 import zFuncionamiento.*;
 public class ventanaAltaPostulante extends javax.swing.JFrame {
 
 
     public ventanaAltaPostulante(Sistema unSistema) {
-        Sistema modelo = unSistema;
         initComponents();
+        modelo = unSistema;
     }
 
 
@@ -253,8 +255,19 @@ public class ventanaAltaPostulante extends javax.swing.JFrame {
         String unaDirec = txtDireccionAltaPostulante.getText();
         int unaCed = Integer.parseInt(txtCedulaAltaPostulante.getText());
         String unNombre = txtNombreAltaPostulante.getText();
-        HashMap<Tematica, Integer> unosTemas = new HashMap<Tematica, Integer>();
-        //Postulante postulante = new Postulante(txt);
+        String formato ="";
+        if (radbutMixtoAltaPostulante.isSelected()){
+            formato = "Mixto";
+        }else{
+            if(radbutPresencialAltaPostulante.isSelected()){
+                formato = "Presencial";
+            }else{
+                formato = "Remoto";
+            }
+        }
+        System.out.println("Formato " + formato);
+        ventanaAltaNivel ventanaAltaNivel = new ventanaAltaNivel(modelo, unLinkedin, unMail, unNumCel, unaDirec, unaCed, unNombre, formato);
+        ventanaAltaNivel.setVisible(true);
     }//GEN-LAST:event_butSiguienteAltaPostulanteActionPerformed
 
 
@@ -283,4 +296,5 @@ public class ventanaAltaPostulante extends javax.swing.JFrame {
     private javax.swing.JTextField txtNombreAltaPostulante;
     private javax.swing.JTextField txtTelefonoAltaPostulante;
     // End of variables declaration//GEN-END:variables
+    private Sistema modelo;
 }

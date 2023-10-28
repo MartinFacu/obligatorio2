@@ -4,6 +4,9 @@
  */
 package Ventanas;
 
+import java.util.ArrayList;
+import zFuncionamiento.*;
+
 /**
  *
  * @author santi
@@ -13,8 +16,9 @@ public class ventanaRegistroTema extends javax.swing.JFrame {
     /**
      * Creates new form ventanaRegistroTema
      */
-    public ventanaRegistroTema() {
+    public ventanaRegistroTema(Sistema unSistema) {
         initComponents();
+        modelo = unSistema;
     }
 
     /**
@@ -70,6 +74,11 @@ public class ventanaRegistroTema extends javax.swing.JFrame {
 
         butRegistrarRegTematica.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         butRegistrarRegTematica.setText("Registrar");
+        butRegistrarRegTematica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butRegistrarRegTematicaActionPerformed(evt);
+            }
+        });
         jPanel1.add(butRegistrarRegTematica);
         butRegistrarRegTematica.setBounds(410, 290, 120, 40);
 
@@ -78,6 +87,13 @@ public class ventanaRegistroTema extends javax.swing.JFrame {
 
         setBounds(0, 0, 615, 401);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void butRegistrarRegTematicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butRegistrarRegTematicaActionPerformed
+        String descripcion = txtDescripcionRegTematica.getText();
+        String nombre = txtNombreRegTematica.getText();
+        Tematica tema = new Tematica(nombre, descripcion);
+        modelo.agregarUnaTematica(tema);
+    }//GEN-LAST:event_butRegistrarRegTematicaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -93,4 +109,5 @@ public class ventanaRegistroTema extends javax.swing.JFrame {
     private javax.swing.JTextField txtDescripcionRegTematica;
     private javax.swing.JTextField txtNombreRegTematica;
     // End of variables declaration//GEN-END:variables
+    private Sistema modelo;
 }

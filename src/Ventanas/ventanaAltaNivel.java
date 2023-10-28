@@ -1,11 +1,19 @@
 
 package Ventanas;
-
+import zFuncionamiento.*;
 
 public class ventanaAltaNivel extends javax.swing.JFrame {
 
-    public ventanaAltaNivel() {
+    public ventanaAltaNivel(Sistema unSistema, String unLinkedin, String unMail, int unNumCel, String unaDirec, int unaCed, String unNombre, String unFormato) {
         initComponents();
+        this.modelo = unSistema;
+        this.linkedin = unLinkedin;
+        this.mail = unMail;
+        this.numCel = unNumCel;
+        this.direccion = unaDirec;
+        this.cedula = unaCed;
+        this.nombre = unNombre;
+        this.formato = unFormato;
     }
 
     @SuppressWarnings("unchecked")
@@ -23,7 +31,7 @@ public class ventanaAltaNivel extends javax.swing.JFrame {
         etiqExperienciaAltaNiveles = new javax.swing.JLabel();
         butEliminarTematicaAltaNiveles = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        listTematicasAltaNiveles = new javax.swing.JList<>();
+        listTematicasAltaNiveles = new javax.swing.JList();
         butCancelarAltaNiveles = new javax.swing.JButton();
         butRegistrarAltaNiveles = new javax.swing.JButton();
 
@@ -42,6 +50,11 @@ public class ventanaAltaNivel extends javax.swing.JFrame {
 
         butAgregarTematicaAltaNiveles.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         butAgregarTematicaAltaNiveles.setText("Agregar");
+        butAgregarTematicaAltaNiveles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butAgregarTematicaAltaNivelesActionPerformed(evt);
+            }
+        });
 
         etiqExperienciaAltaNiveles.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         etiqExperienciaAltaNiveles.setText("Experiencia:");
@@ -49,10 +62,10 @@ public class ventanaAltaNivel extends javax.swing.JFrame {
         butEliminarTematicaAltaNiveles.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         butEliminarTematicaAltaNiveles.setText("Eliminar");
 
-        listTematicasAltaNiveles.setModel(new javax.swing.AbstractListModel<String>() {
+        listTematicasAltaNiveles.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1.setViewportView(listTematicasAltaNiveles);
 
@@ -166,6 +179,10 @@ public class ventanaAltaNivel extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_butRegistrarAltaNivelesActionPerformed
 
+    private void butAgregarTematicaAltaNivelesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAgregarTematicaAltaNivelesActionPerformed
+        
+    }//GEN-LAST:event_butAgregarTematicaAltaNivelesActionPerformed
+
 
     
 
@@ -182,7 +199,15 @@ public class ventanaAltaNivel extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JList<String> listTematicasAltaNiveles;
+    private javax.swing.JList listTematicasAltaNiveles;
     private javax.swing.JSpinner spinNivelElegidoAltaNiveles;
     // End of variables declaration//GEN-END:variables
+    private Sistema modelo;
+    private String nombre;
+    private int cedula;
+    private String direccion;
+    private int numCel;
+    private String mail;
+    private String linkedin;
+    private String formato;
 }
