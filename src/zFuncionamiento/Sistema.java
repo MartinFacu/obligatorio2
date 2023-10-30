@@ -26,29 +26,44 @@ public class Sistema {
     
     
     public Sistema(){    
-        this.entrevistas = new ArrayList<Entrevista>();
-        this.puestos = new ArrayList<Puesto>();
-        this.entrevistadores = new ArrayList<Entrevistador>();
-        this.postulantes = new ArrayList<Postulante>();
-        this.tematicas = new ArrayList<Tematica>();
+        this.entrevistas = new ArrayList<>();
+        this.puestos = new ArrayList<>();
+        this.entrevistadores = new ArrayList<>();
+        this.postulantes = new ArrayList<>();
+        this.tematicas = new ArrayList<>();
         this.hashMapTematicasConNivel=new HashMap();
     }
 
     public ArrayList<String> darDatosDelHash(){
+        System.out.println("entre a : darDatosDelHash");
         ArrayList<String> lista = new ArrayList<>();
         Iterator<Tematica> it = hashMapTematicasConNivel.keySet().iterator();
         while (it.hasNext()){
-            lista.add(it.next()+"("+hashMapTematicasConNivel.get(it)+")");
+            Tematica tematica = it.next(); 
+            int nivel = hashMapTematicasConNivel.get(tematica);
+            lista.add(tematica+"("+nivel+")");
         }
+        System.out.println("Sali de : darDatosDelHash");
         return lista;
     }
-
-    public void setHashMapTematicasConNivel(HashMap<Tematica, Integer> hashMapTematicasConNivel) {
-        this.hashMapTematicasConNivel = hashMapTematicasConNivel;
+    
+    public void eliminarUnDatoDelHash(String dato){
+        System.out.println("entre a : eliminarUnDatoDelHash");
+        String[] datoEnPartes = dato.split("\\(");
+        String tematicaSeleccionada = datoEnPartes[0];
+        Iterator<Tematica> it = hashMapTematicasConNivel.keySet().iterator();
+        while (it.hasNext()){
+            Tematica tematica = it.next(); 
+            if(tematica.getNombre().equals(tematicaSeleccionada)){
+                hashMapTematicasConNivel.remove(tematica);
+            }
+        }
+        System.out.println("Sali de : eliminarUnDatoDelHash");
     }
-    
-    
 
+    public HashMap<Tematica, Integer> getHashMapTematicasConNivel() {
+        return hashMapTematicasConNivel;
+    }
     public ArrayList<Tematica> getTematicas() {
         return tematicas;
     }
@@ -86,8 +101,9 @@ public class Sistema {
         return postulantes;
     }
 
-    public void setPostulantes(ArrayList<Postulante> postulantes) {
-        this.postulantes = postulantes;
+    public void agregarPostulante(Postulante postulante) {
+        this.postulantes.add(postulante);
+        System.out.println("postulante ingresado");
     }
     
     public void eliminarUnPostulante(Postulante unPostulante){
@@ -110,5 +126,8 @@ public class Sistema {
         System.out.println("Agregado al HashMap");
     }
     
+    public void limpiarHashMap(){
+        hashMapTematicasConNivel.clear();
+    }
     
 }

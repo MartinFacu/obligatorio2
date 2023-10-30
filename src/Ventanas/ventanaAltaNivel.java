@@ -15,7 +15,8 @@ public class ventanaAltaNivel extends javax.swing.JFrame {
         this.cedula = unaCed;
         this.nombre = unNombre;
         this.formato = unFormato;
-        cargardatosCombo();
+        cargarDatosCombo();
+        listTematicasAltaNiveles.setListData(modelo.darDatosDelHash().toArray());
     }
 
     @SuppressWarnings("unchecked")
@@ -68,6 +69,11 @@ public class ventanaAltaNivel extends javax.swing.JFrame {
 
         butEliminarTematicaAltaNiveles.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         butEliminarTematicaAltaNiveles.setText("Eliminar");
+        butEliminarTematicaAltaNiveles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butEliminarTematicaAltaNivelesActionPerformed(evt);
+            }
+        });
 
         listTematicasAltaNiveles.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -183,7 +189,12 @@ public class ventanaAltaNivel extends javax.swing.JFrame {
     }//GEN-LAST:event_butCancelarAltaNivelesActionPerformed
 
     private void butRegistrarAltaNivelesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butRegistrarAltaNivelesActionPerformed
-        // TODO add your handling code here:
+        Postulante postulante = new Postulante(this.formato, this.linkedin, this.mail, this.numCel, this.direccion, this.cedula, this.nombre, modelo.getHashMapTematicasConNivel());
+        modelo.agregarPostulante(postulante);
+        System.out.println("Agregado");
+        modelo.limpiarHashMap();
+        listTematicasAltaNiveles.setListData(modelo.darDatosDelHash().toArray());
+        this.dispose();
     }//GEN-LAST:event_butRegistrarAltaNivelesActionPerformed
 
     private void butAgregarTematicaAltaNivelesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAgregarTematicaAltaNivelesActionPerformed
@@ -198,6 +209,14 @@ public class ventanaAltaNivel extends javax.swing.JFrame {
     private void combTemaElegidoAltaNivelesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combTemaElegidoAltaNivelesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_combTemaElegidoAltaNivelesActionPerformed
+
+    private void butEliminarTematicaAltaNivelesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butEliminarTematicaAltaNivelesActionPerformed
+        String tematicaSeleccionada= (String) listTematicasAltaNiveles.getSelectedValue();
+        System.out.println("tem selec : "+tematicaSeleccionada);
+        modelo.eliminarUnDatoDelHash(tematicaSeleccionada);
+        listTematicasAltaNiveles.setListData(modelo.darDatosDelHash().toArray());
+        
+    }//GEN-LAST:event_butEliminarTematicaAltaNivelesActionPerformed
 
 
     
@@ -228,7 +247,7 @@ public class ventanaAltaNivel extends javax.swing.JFrame {
     private String formato;
     
     
-    public void cargardatosCombo(){
+    public void cargarDatosCombo(){
         combTemaElegidoAltaNiveles.removeAllItems();
         for (Tematica tematica : modelo.getTematicas()) {
             combTemaElegidoAltaNiveles.addItem(tematica);
