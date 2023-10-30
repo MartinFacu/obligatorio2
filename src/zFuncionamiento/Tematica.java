@@ -11,4 +11,11 @@ public class Tematica {
         this.nombre = unNombre;
         this.descripcion = unaDescripcion;
     }
+
+    @Override
+    public String toString() {
+        return this.nombre;
+    }
+    
+    
 }

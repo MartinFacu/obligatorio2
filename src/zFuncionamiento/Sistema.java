@@ -3,6 +3,7 @@ package zFuncionamiento;
 import Ventanas.*;
 import Main.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 public class Sistema {
@@ -11,6 +12,7 @@ public class Sistema {
     private ArrayList<Entrevistador> entrevistadores;
     private ArrayList<Postulante> postulantes;
     private ArrayList<Tematica> tematicas;
+    private HashMap<Tematica, Integer> hashMapTematicasConNivel;
 
     public Sistema(ArrayList<Entrevista> entrevistas, ArrayList<Puesto> puestos, ArrayList<Entrevistador> entrevistadores, ArrayList<Postulante> postulantes, ArrayList<Tematica> tematicas) {
         this.entrevistas = entrevistas;
@@ -18,6 +20,7 @@ public class Sistema {
         this.entrevistadores = entrevistadores;
         this.postulantes = postulantes;
         this.tematicas = tematicas;
+        this.hashMapTematicasConNivel=new HashMap();
     }
 
     
@@ -28,7 +31,23 @@ public class Sistema {
         this.entrevistadores = new ArrayList<Entrevistador>();
         this.postulantes = new ArrayList<Postulante>();
         this.tematicas = new ArrayList<Tematica>();
+        this.hashMapTematicasConNivel=new HashMap();
     }
+
+    public ArrayList<String> darDatosDelHash(){
+        ArrayList<String> lista = new ArrayList<>();
+        Iterator<Tematica> it = hashMapTematicasConNivel.keySet().iterator();
+        while (it.hasNext()){
+            lista.add(it.next()+"("+hashMapTematicasConNivel.get(it)+")");
+        }
+        return lista;
+    }
+
+    public void setHashMapTematicasConNivel(HashMap<Tematica, Integer> hashMapTematicasConNivel) {
+        this.hashMapTematicasConNivel = hashMapTematicasConNivel;
+    }
+    
+    
 
     public ArrayList<Tematica> getTematicas() {
         return tematicas;
@@ -85,5 +104,11 @@ public class Sistema {
         this.tematicas.add(unTema);
         System.out.println("tema ingresado");
     }
+    
+    public void agregarAlHashMap(Tematica unTema, Integer unNivel){
+        this.hashMapTematicasConNivel.put(unTema,unNivel);
+        System.out.println("Agregado al HashMap");
+    }
+    
     
 }

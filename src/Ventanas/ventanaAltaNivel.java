@@ -1,5 +1,6 @@
 
 package Ventanas;
+import java.util.HashMap;
 import zFuncionamiento.*;
 
 public class ventanaAltaNivel extends javax.swing.JFrame {
@@ -14,6 +15,7 @@ public class ventanaAltaNivel extends javax.swing.JFrame {
         this.cedula = unaCed;
         this.nombre = unNombre;
         this.formato = unFormato;
+        cargardatosCombo();
     }
 
     @SuppressWarnings("unchecked")
@@ -23,7 +25,7 @@ public class ventanaAltaNivel extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         etiqTitAltaNiveles = new javax.swing.JLabel();
         etiqTematicaAltaNiveles = new javax.swing.JLabel();
-        combTemaElegidoAltaNiveles = new javax.swing.JComboBox<>();
+        combTemaElegidoAltaNiveles = new javax.swing.JComboBox();
         etiqNIvelAltaNiveles = new javax.swing.JLabel();
         spinNivelElegidoAltaNiveles = new javax.swing.JSpinner();
         butAgregarTematicaAltaNiveles = new javax.swing.JButton();
@@ -43,7 +45,12 @@ public class ventanaAltaNivel extends javax.swing.JFrame {
         etiqTematicaAltaNiveles.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         etiqTematicaAltaNiveles.setText("Tematica:");
 
-        combTemaElegidoAltaNiveles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combTemaElegidoAltaNiveles.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combTemaElegidoAltaNiveles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combTemaElegidoAltaNivelesActionPerformed(evt);
+            }
+        });
 
         etiqNIvelAltaNiveles.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         etiqNIvelAltaNiveles.setText("Nivel:");
@@ -180,8 +187,17 @@ public class ventanaAltaNivel extends javax.swing.JFrame {
     }//GEN-LAST:event_butRegistrarAltaNivelesActionPerformed
 
     private void butAgregarTematicaAltaNivelesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAgregarTematicaAltaNivelesActionPerformed
-        
+        //agarro los datos seleccionados y los agrego al hashMap
+        Tematica tematicaSeleccionada= (Tematica) combTemaElegidoAltaNiveles.getSelectedItem();
+        Integer nivelSeleccionado = (Integer) spinNivelElegidoAltaNiveles.getValue();
+        modelo.agregarAlHashMap(tematicaSeleccionada, nivelSeleccionado);
+        //cargo la lista con los elementos del hashmap
+        listTematicasAltaNiveles.setListData(modelo.darDatosDelHash().toArray());
     }//GEN-LAST:event_butAgregarTematicaAltaNivelesActionPerformed
+
+    private void combTemaElegidoAltaNivelesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combTemaElegidoAltaNivelesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combTemaElegidoAltaNivelesActionPerformed
 
 
     
@@ -191,7 +207,7 @@ public class ventanaAltaNivel extends javax.swing.JFrame {
     private javax.swing.JButton butCancelarAltaNiveles;
     private javax.swing.JButton butEliminarTematicaAltaNiveles;
     private javax.swing.JButton butRegistrarAltaNiveles;
-    private javax.swing.JComboBox<String> combTemaElegidoAltaNiveles;
+    private javax.swing.JComboBox combTemaElegidoAltaNiveles;
     private javax.swing.JLabel etiqExperienciaAltaNiveles;
     private javax.swing.JLabel etiqNIvelAltaNiveles;
     private javax.swing.JLabel etiqTematicaAltaNiveles;
@@ -210,4 +226,12 @@ public class ventanaAltaNivel extends javax.swing.JFrame {
     private String mail;
     private String linkedin;
     private String formato;
+    
+    
+    public void cargardatosCombo(){
+        combTemaElegidoAltaNiveles.removeAllItems();
+        for (Tematica tematica : modelo.getTematicas()) {
+            combTemaElegidoAltaNiveles.addItem(tematica);
+        }
+    }
 }
