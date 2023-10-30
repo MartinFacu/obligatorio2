@@ -86,4 +86,10 @@ public class Postulante {
     public HashMap<Tematica, Integer> getTemas() {
         return temas;
     }
+
+    @Override
+    public String toString() {
+        return "Postulante{" + "nombre=" + nombre + ", cedula=" + cedula + ", numCel=" + numCel + '}';
+    }
+    
 }

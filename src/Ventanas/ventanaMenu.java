@@ -125,11 +125,13 @@ public class ventanaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_opcionRegistroTemaActionPerformed
 
     private void opcionRegistroEvaluadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionRegistroEvaluadorActionPerformed
-        // TODO add your handling code here:
+        AltaEntrevistador ventanaAltaEntrevistador = new AltaEntrevistador(modelo); 
+        ventanaAltaEntrevistador.setVisible(true);
     }//GEN-LAST:event_opcionRegistroEvaluadorActionPerformed
 
     private void opcionBajaPostulanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionBajaPostulanteActionPerformed
-        // TODO add your handling code here:
+        ventanaBajaPostulante ventanaBajaPostulante = new ventanaBajaPostulante(modelo); 
+        ventanaBajaPostulante.setVisible(true);
     }//GEN-LAST:event_opcionBajaPostulanteActionPerformed
 
     private void opcionHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionHistorialActionPerformed
@@ -142,7 +144,8 @@ public class ventanaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_opcionAltaPostulanteActionPerformed
 
     private void opcionIngresoEntrevistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionIngresoEntrevistaActionPerformed
-        // TODO add your handling code here:
+        ventanaAltaEntrevista ventanaAltaEntrevista = new ventanaAltaEntrevista(modelo); 
+        ventanaAltaEntrevista.setVisible(true);
     }//GEN-LAST:event_opcionIngresoEntrevistaActionPerformed
 
     private void opcionConsultoPuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionConsultoPuestoActionPerformed

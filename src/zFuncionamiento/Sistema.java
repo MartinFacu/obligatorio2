@@ -92,9 +92,15 @@ public class Sistema {
     public ArrayList<Entrevistador> getEntrevistadores() {
         return entrevistadores;
     }
+    
+    public void agregarEntrevista (Entrevista unaEntrevista){
+        this.entrevistas.add(unaEntrevista);
+        System.out.println("Entrevista agregada");
+    }
 
-    public void setEntrevistadores(ArrayList<Entrevistador> entrevistadores) {
-        this.entrevistadores = entrevistadores;
+    public void agregarEntrevistador(Entrevistador entrevistadore) {
+        this.entrevistadores.add(entrevistadore);
+        System.out.println("entrevistador agregado");
     }
 
     public ArrayList<Postulante> getPostulantes() {
@@ -107,13 +113,7 @@ public class Sistema {
     }
     
     public void eliminarUnPostulante(Postulante unPostulante){
-        int cedulaAEliminar= unPostulante.getCedula();
-        for(int i=0; i<this.postulantes.size();i++){
-            int pos = this.postulantes.get(i).getCedula();
-            if(pos==cedulaAEliminar){
-                this.postulantes.remove(i);
-            }
-        }
+        postulantes.remove(unPostulante);
     }
     
     public void agregarUnaTematica(Tematica unTema){

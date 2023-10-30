@@ -9,12 +9,15 @@ public class Entrevistador {
     private String direccion;
     private int ingresoALaEmpresa;
     
+
     public Entrevistador(String nombre, int cedula, String direccion, int ingresoALaEmpresa) {
         this.nombre = nombre;
         this.cedula = cedula;
         this.direccion = direccion;
         this.ingresoALaEmpresa = ingresoALaEmpresa;
     }
+    
+    
     
     // Getter y Setter para el campo 'nombre'
     public String getNombre() {
@@ -51,4 +54,11 @@ public class Entrevistador {
     public void setIngresoALaEmpresa(int ingresoALaEmpresa) {
         this.ingresoALaEmpresa = ingresoALaEmpresa;
     }
+
+    @Override
+    public String toString() {
+        return "Entrevistador{" + "nombre=" + nombre + ", cedula=" + cedula + '}';
+    }
+    
+    
 }
