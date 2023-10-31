@@ -2,6 +2,7 @@
 package Main;
 import zFuncionamiento.*;
 import Ventanas.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Main {
@@ -26,9 +27,10 @@ public class Main {
         hashMap.put(tema2, 3);
         Postulante postulante1 = new Postulante("Presencial", "linkedelfalo.com", "falo@gmail", 99234, "Bulevar Artigas", 123456, "Falo", hashMap);
         sistema.agregarPostulante(postulante1);
-        hashMap.put(tema3, 7);
-        hashMap.put(tema4, 2);
-        Postulante postulante2 = new Postulante("Remoto", "linkedelmors.com", "mors@gmail", 993812, "Villas", 6789, "Mors", hashMap);
+        HashMap<Tematica, Integer> hashMap2 = new HashMap<>();
+        hashMap2.put(tema3, 7);
+        hashMap2.put(tema4, 2);
+        Postulante postulante2 = new Postulante("Remoto", "linkedelmors.com", "mors@gmail", 993812, "Villas", 6789, "Mors", hashMap2);
         sistema.agregarPostulante(postulante2);
         Entrevistador entrevistador1 = new Entrevistador("entrevistador1", 2134, "DireccionENtrevis1", 2001);
         Entrevistador entrevistador2 = new Entrevistador("entrevistador2", 2131, "DireccionENtrevis2", 2002);
@@ -40,6 +42,16 @@ public class Main {
         sistema.agregarEntrevista(entrevista1);
         sistema.agregarEntrevista(entrevista2);
         sistema.agregarEntrevista(entrevista3);
+        ArrayList<Tematica> arr1=new ArrayList<>();
+        arr1.add(tema1);
+        arr1.add(tema2);
+        ArrayList<Tematica> arr2=new ArrayList<>();
+        arr2.add(tema3);
+        arr2.add(tema4);
+        Puesto puesto1 = new Puesto("puesto1", "Presencial", arr1);
+        Puesto puesto2 = new Puesto("puesto2", "Remoto", arr2);
+        sistema.agregarPuesto(puesto1);
+        sistema.agregarPuesto(puesto2);
+        
     }
-    
 }

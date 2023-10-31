@@ -36,6 +36,11 @@ public class Puesto {
     public void setTemas(ArrayList<Tematica> temas) {
         this.temas = temas;
     }
+
+    @Override
+    public String toString() {
+        return "Puesto{" + "nombre=" + nombre + ", tipo=" + tipo + ", temas=" + temas + '}';
+    }
     
     
 }

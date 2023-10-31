@@ -80,6 +80,11 @@ public class ventanaMenu extends javax.swing.JFrame {
         jMenu1.add(opcionIngresoEntrevista);
 
         opcionRegistroPuesto.setText("Registro de puesto");
+        opcionRegistroPuesto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opcionRegistroPuestoActionPerformed(evt);
+            }
+        });
         jMenu1.add(opcionRegistroPuesto);
 
         opcionConsultoPuesto.setText("Consulta para puesto");
@@ -149,8 +154,14 @@ public class ventanaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_opcionIngresoEntrevistaActionPerformed
 
     private void opcionConsultoPuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionConsultoPuestoActionPerformed
-        // TODO add your handling code here:
+        ventanaConsultaPuesto ventanaConsultaPuestoo = new ventanaConsultaPuesto(modelo); 
+        ventanaConsultaPuestoo.setVisible(true);
     }//GEN-LAST:event_opcionConsultoPuestoActionPerformed
+
+    private void opcionRegistroPuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionRegistroPuestoActionPerformed
+        ventanaRegistroPuesto ventanaRegistroPuestoo = new ventanaRegistroPuesto(modelo); 
+        ventanaRegistroPuestoo.setVisible(true);
+    }//GEN-LAST:event_opcionRegistroPuestoActionPerformed
 
     /**
      * @param args the command line arguments

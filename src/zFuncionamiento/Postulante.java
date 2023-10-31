@@ -89,7 +89,9 @@ public class Postulante {
 
     @Override
     public String toString() {
-        return "Postulante{" + "nombre=" + nombre + ", cedula=" + cedula + ", numCel=" + numCel + '}';
+        return "Postulante{" + "nombre=" + nombre + ", cedula=" + cedula + ", direccion=" + direccion + ", formato=" + formato + ", temas=" + temas + '}';
     }
+
+    
     
 }

@@ -88,6 +88,11 @@ public class Sistema {
     public void setPuestos(ArrayList<Puesto> puestos) {
         this.puestos = puestos;
     }
+    
+    public void agregarPuesto (Puesto unPuesto){
+        this.puestos.add(unPuesto);
+        System.out.println("Puesto agregada");
+    }
 
     public ArrayList<Entrevistador> getEntrevistadores() {
         return entrevistadores;
@@ -130,4 +135,47 @@ public class Sistema {
         hashMapTematicasConNivel.clear();
     }
     
+    public ArrayList<Postulante> getPostulantesFiltradosPorNivel(ArrayList<Tematica> temasParaFiltrar, int nivelAFiltrar){
+        System.out.println("enrte getPostulantesFiltradosPorNivel");
+        ArrayList<Postulante> listaADevolver= new ArrayList<>();
+        for(Postulante pos : this.postulantes){
+            Boolean coincideTodos=true;
+            HashMap<Tematica, Integer> hashDePostulante = pos.getTemas();
+            for(Tematica tema : temasParaFiltrar){
+                if (hashDePostulante.containsKey(tema)){
+                    if (!(hashDePostulante.get(tema)>= nivelAFiltrar)){
+                        coincideTodos=false;
+                    }
+                }else{
+                    coincideTodos=false;
+                }
+            }
+            if(coincideTodos){
+                listaADevolver.add(pos);
+            }
+        }
+        return listaADevolver;
+    }
+    
+    public ArrayList<Postulante> getPostulantesFiltradosPorEntrevista(ArrayList<Postulante> listaAFiltrar){
+        System.out.println("enrte getPostulantesFiltradosPorEntrevista");
+        ArrayList<Postulante> listaADevolver= new ArrayList<>();
+        for(Postulante pos : this.postulantes){
+            if (this.entrevistas.contains(pos)){
+                listaADevolver.add(pos);
+            }
+        }
+        return listaADevolver;
+    }
+    
+    public ArrayList<Postulante> getPostulantesFiltradosPorFormato(ArrayList<Postulante> listaAFiltrar, String formatoDelPuesto){
+        System.out.println("enrte getPostulantesFiltradosPorFormato");
+        ArrayList<Postulante> listaADevolver= new ArrayList<>();
+        for(Postulante pos : this.postulantes){
+            if(pos.getFormato().equals(formatoDelPuesto)){
+                listaADevolver.add(pos);
+            }
+        }
+        return listaADevolver;
+    }
 }
