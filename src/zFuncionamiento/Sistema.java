@@ -3,6 +3,8 @@ package zFuncionamiento;
 import Ventanas.*;
 import Main.*;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -64,6 +66,18 @@ public class Sistema {
     public HashMap<Tematica, Integer> getHashMapTematicasConNivel() {
         return hashMapTematicasConNivel;
     }
+    
+    public HashMap<Tematica, Integer> clonarHash() {
+        HashMap<Tematica, Integer> hashParaPostulante = new HashMap<>();
+        Iterator<Tematica> it = hashMapTematicasConNivel.keySet().iterator();
+        while (it.hasNext()){
+            Tematica tematica = it.next();
+            int nivel = hashMapTematicasConNivel.get(tematica);
+            hashParaPostulante.put(tematica, nivel);
+        }
+        return hashParaPostulante;
+    }
+    
     public ArrayList<Tematica> getTematicas() {
         return tematicas;
     }
@@ -100,7 +114,7 @@ public class Sistema {
     
     public void agregarEntrevista (Entrevista unaEntrevista){
         this.entrevistas.add(unaEntrevista);
-        System.out.println("Entrevista agregada");
+        System.out.println("Entrevista agregada: " + unaEntrevista);
     }
 
     public void agregarEntrevistador(Entrevistador entrevistadore) {
@@ -160,10 +174,11 @@ public class Sistema {
     public ArrayList<Postulante> getPostulantesFiltradosPorEntrevista(ArrayList<Postulante> listaAFiltrar){
         System.out.println("enrte getPostulantesFiltradosPorEntrevista");
         ArrayList<Postulante> listaADevolver= new ArrayList<>();
-        for(Postulante pos : this.postulantes){
-            if (this.entrevistas.contains(pos)){
-                listaADevolver.add(pos);
-            }
+        for(Postulante pos : listaAFiltrar){
+            for(Entrevista entre : this.entrevistas)
+                if (entre.getPostulante().equals(pos)&&!(listaADevolver.contains(pos))){
+                    listaADevolver.add(pos);
+                }
         }
         return listaADevolver;
     }
@@ -171,11 +186,41 @@ public class Sistema {
     public ArrayList<Postulante> getPostulantesFiltradosPorFormato(ArrayList<Postulante> listaAFiltrar, String formatoDelPuesto){
         System.out.println("enrte getPostulantesFiltradosPorFormato");
         ArrayList<Postulante> listaADevolver= new ArrayList<>();
-        for(Postulante pos : this.postulantes){
+        for(Postulante pos : listaAFiltrar){
             if(pos.getFormato().equals(formatoDelPuesto)){
                 listaADevolver.add(pos);
             }
         }
+        return listaADevolver;
+    }
+    public ArrayList<Postulante> getPostulantesFiltradosPorEntrevistaPuntaje(ArrayList<Postulante> listaAFiltrar){
+        ArrayList<Postulante> listaADevolver= new ArrayList<>();
+        ArrayList<Entrevista> EntrevistasFiltradas= new ArrayList<>();
+        
+        // filtro para tener una lista de las entrevistas en las que hayan participado los postulantes posibles
+        for(Entrevista entrevis: this.entrevistas){
+            if(listaAFiltrar.contains(entrevis.getPostulante())){
+                EntrevistasFiltradas.add(entrevis);
+            }
+        }
+        // filtro la lista de entrevistas generada recien para que me queden en orden decreciente por el puntaje
+        Collections.sort(EntrevistasFiltradas, new Comparator<Entrevista>() {
+            @Override
+            public int compare(Entrevista e1, Entrevista e2) {
+                return e2.getPuntaje() - e1.getPuntaje();
+            }
+        });
+        
+        
+        //ahora de esta lista de entrevistas agarro los postulantes si no estan ya en la lista(si las entrevistas estan en orden decreciente)
+        //tambien lo estaran los postulantes
+        for(Entrevista entrevis2 : EntrevistasFiltradas){
+            if(!(listaADevolver.contains(entrevis2.getPostulante()))){
+                listaADevolver.add(entrevis2.getPostulante());
+            }
+        }
+        
+        
         return listaADevolver;
     }
 }

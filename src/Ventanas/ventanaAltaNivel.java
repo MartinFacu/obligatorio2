@@ -189,11 +189,14 @@ public class ventanaAltaNivel extends javax.swing.JFrame {
     }//GEN-LAST:event_butCancelarAltaNivelesActionPerformed
 
     private void butRegistrarAltaNivelesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butRegistrarAltaNivelesActionPerformed
-        Postulante postulante = new Postulante(this.formato, this.linkedin, this.mail, this.numCel, this.direccion, this.cedula, this.nombre, modelo.getHashMapTematicasConNivel());
+        HashMap<Tematica, Integer> hashParaPostulante = modelo.clonarHash();
+        Postulante postulante = new Postulante(this.formato, this.linkedin, this.mail, this.numCel, this.direccion, this.cedula, this.nombre, hashParaPostulante);
+        System.out.println(modelo.getHashMapTematicasConNivel());
+        System.out.println("Postulante: "+postulante);
         modelo.agregarPostulante(postulante);
-        System.out.println("Agregado");
         modelo.limpiarHashMap();
         listTematicasAltaNiveles.setListData(modelo.darDatosDelHash().toArray());
+        System.out.println(postulante);
         this.dispose();
     }//GEN-LAST:event_butRegistrarAltaNivelesActionPerformed
 

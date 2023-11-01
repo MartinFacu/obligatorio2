@@ -30,8 +30,12 @@ public class Main {
         HashMap<Tematica, Integer> hashMap2 = new HashMap<>();
         hashMap2.put(tema3, 7);
         hashMap2.put(tema4, 2);
-        Postulante postulante2 = new Postulante("Remoto", "linkedelmors.com", "mors@gmail", 993812, "Villas", 6789, "Mors", hashMap2);
+        Postulante postulante2 = new Postulante("Mixto", "linkedelmors.com", "mors@gmail", 993812, "Villas", 6789, "Mors", hashMap2);
+        Postulante postulante3 = new Postulante("Remoto", "hola.com", "mors22332@gmail", 993812, "Villas", 6789, "Morsaa", hashMap2);
+        Postulante postulante4 = new Postulante("Remoto", "hola22222.com", "dwdadaw@gmail", 993812, "Villas", 6789, "morsaloca", hashMap2);
         sistema.agregarPostulante(postulante2);
+        sistema.agregarPostulante(postulante3);
+        sistema.agregarPostulante(postulante4);
         Entrevistador entrevistador1 = new Entrevistador("entrevistador1", 2134, "DireccionENtrevis1", 2001);
         Entrevistador entrevistador2 = new Entrevistador("entrevistador2", 2131, "DireccionENtrevis2", 2002);
         sistema.agregarEntrevistador(entrevistador1);

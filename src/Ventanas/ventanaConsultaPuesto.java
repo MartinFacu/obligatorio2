@@ -105,7 +105,7 @@ public class ventanaConsultaPuesto extends javax.swing.JFrame {
                     .addComponent(jScrollPane1)
                     .addComponent(etiqPuestosConsutarPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator1))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(428, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,10 +144,10 @@ public class ventanaConsultaPuesto extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 34, Short.MAX_VALUE))
+                .addGap(0, 38, Short.MAX_VALUE))
         );
 
-        setBounds(0, 0, 502, 693);
+        setBounds(0, 0, 881, 697);
     }// </editor-fold>//GEN-END:initComponents
 
     private void butConsularConsutarPuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butConsularConsutarPuestoActionPerformed
@@ -182,12 +182,10 @@ public class ventanaConsultaPuesto extends javax.swing.JFrame {
     }
     public void cargarListasFiltrados(ArrayList<Tematica> temasParaFiltrar, int nivelAFiltrar, String formatoDelPuesto){
         ArrayList<Postulante> listaFiltroNivel= modelo.getPostulantesFiltradosPorNivel(temasParaFiltrar, nivelAFiltrar);
-        //ArrayList<Postulante> listaFiltroFormato=modelo.getPostulantesFiltradosPorFormato(listaFiltroNivel, formatoDelPuesto);
-        //ArrayList<Postulante> listaFiltroEntrevista=modelo.getPostulantesFiltradosPorEntrevista(listaFiltroFormato);
-        
-        
-        
-        listPostulantesConsutarPuesto.setListData(listaFiltroNivel.toArray());
+        ArrayList<Postulante> listaFiltroFormato=modelo.getPostulantesFiltradosPorFormato(listaFiltroNivel, formatoDelPuesto);
+        ArrayList<Postulante> listaFiltroEntrevista=modelo.getPostulantesFiltradosPorEntrevista(listaFiltroFormato);
+        ArrayList<Postulante> listaFiltroFinal=modelo.getPostulantesFiltradosPorEntrevistaPuntaje(listaFiltroEntrevista);
+        listPostulantesConsutarPuesto.setListData(listaFiltroFinal.toArray());
         listPuestosConsutarPuesto.setListData(modelo.getPuestos().toArray());
     }
 }
