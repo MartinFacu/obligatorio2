@@ -92,6 +92,17 @@ public class Postulante {
         return "Postulante{" + "nombre=" + nombre + ", cedula=" + cedula + ", direccion=" + direccion + ", formato=" + formato + ", temas=" + temas + '}';
     }
 
-    
+    public ArrayList<String> darDatosDelHash(){
+        System.out.println("entre a : darDatosDelHash Postulante");
+        ArrayList<String> lista = new ArrayList<>();
+        Iterator<Tematica> it = temas.keySet().iterator();
+        while (it.hasNext()){
+            Tematica tematica = it.next(); 
+            int nivel = temas.get(tematica);
+            lista.add(tematica+"("+nivel+")");
+        }
+        System.out.println("Sali de : darDatosDelHash");
+        return lista;
+    }
     
 }

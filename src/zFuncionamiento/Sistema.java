@@ -223,4 +223,24 @@ public class Sistema {
         
         return listaADevolver;
     }
+    
+    public ArrayList<Entrevista> getPostulantesFiltradosPorEntrevistaPuntajeCreciente(Postulante postulanteFiltro){
+        ArrayList<Entrevista> entrevistasFiltradas= new ArrayList<>();
+        
+        // filtro para tener una lista de las entrevistas en las que hayan participado los postulantes posibles
+        for(Entrevista entrevis: this.entrevistas){
+            if(postulanteFiltro.equals(entrevis.getPostulante())){
+                entrevistasFiltradas.add(entrevis);
+            }
+        }
+        // filtro la lista de entrevistas generada recien para que me queden en orden decreciente por el puntaje
+        Collections.sort(entrevistasFiltradas, new Comparator<Entrevista>() {
+            @Override
+            public int compare(Entrevista e1, Entrevista e2) {
+                return e1.getNumeroCorrelativo()- e2.getNumeroCorrelativo();
+            }
+        });
+        return entrevistasFiltradas;
+    }
+    
 }

@@ -140,7 +140,8 @@ public class ventanaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_opcionBajaPostulanteActionPerformed
 
     private void opcionHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionHistorialActionPerformed
-        // TODO add your handling code here:
+        ventanaHistoriaPostulante ventanaHisPostulante = new ventanaHistoriaPostulante(modelo); 
+        ventanaHisPostulante.setVisible(true);
     }//GEN-LAST:event_opcionHistorialActionPerformed
 
     private void opcionAltaPostulanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionAltaPostulanteActionPerformed

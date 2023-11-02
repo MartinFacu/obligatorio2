@@ -40,7 +40,7 @@ public class Main {
         Entrevistador entrevistador2 = new Entrevistador("entrevistador2", 2131, "DireccionENtrevis2", 2002);
         sistema.agregarEntrevistador(entrevistador1);
         sistema.agregarEntrevistador(entrevistador2);
-        Entrevista entrevista1 = new Entrevista(entrevistador2, postulante2, 20, "buenardo", 1);
+        Entrevista entrevista1 = new Entrevista(entrevistador2, postulante2, 20, "buenardo y nashe", 1);
         Entrevista entrevista2 = new Entrevista(entrevistador1, postulante1, 10, "malardo", 2);
         Entrevista entrevista3 = new Entrevista(entrevistador2, postulante1, 100, "epico", 3);
         sistema.agregarEntrevista(entrevista1);

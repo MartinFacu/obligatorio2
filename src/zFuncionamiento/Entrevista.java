@@ -14,8 +14,10 @@ public class Entrevista {
         this.comentarios = comentarios;
         this.numeroCorrelativo = numeroCorrelativo;
     }
-    
-    
+
+    public int getNumeroCorrelativo() {
+        return numeroCorrelativo;
+    }
 
     public Entrevistador getEntrevistador() {
         return entrevistador;
@@ -52,6 +54,22 @@ public class Entrevista {
     @Override
     public String toString() {
         return "Entrevista{" + "entrevistador=" + entrevistador + ", postulante=" + postulante + ", puntaje=" + puntaje + ", comentarios=" + comentarios + "}";
+    }
+    
+    public String comentarioConColor(String palabraABuscar){
+        String textoAMostrar="";
+        String[]arrayDeComentarios = this.getComentarios().split(" ");
+        for (int i = 0; i < arrayDeComentarios.length; i++) {
+        if (arrayDeComentarios[i].equals(palabraABuscar)) {
+            // Si la palabra coincide, aplicamos el formato HTML para color rojo
+            textoAMostrar += "<font color='red'>" + arrayDeComentarios[i] + "</font> ";
+        } else {
+            // De lo contrario, simplemente agregamos el texto en negro
+            textoAMostrar += arrayDeComentarios[i] + " ";
+        }
+    }
+    
+    return "<html>" + textoAMostrar + "</html>";
     }
     
 }
