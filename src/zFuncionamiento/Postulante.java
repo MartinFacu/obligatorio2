@@ -22,7 +22,9 @@ public class Postulante {
         this.cedula = unaCedula;
         this.temas = unosTemas;
     }
-
+    
+    
+    
     public String getNombre() {
         return nombre;
     }

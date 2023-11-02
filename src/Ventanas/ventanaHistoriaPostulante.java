@@ -16,6 +16,13 @@ public class ventanaHistoriaPostulante extends javax.swing.JFrame {
         modelo = unSistema;
         listPostulantesHistoriaPostulante.setListData(modelo.getPostulantes().toArray());
         listExperienciasHistoriaPostulante.setListData(modelo.darDatosDelHash().toArray());
+        etiqAModificarNombreHistoriaPostulante.setText("");
+        etiqAModificarCedulaHistoriaPostulante.setText("");
+        etiqAModificarDireccionHistoriaPostulante.setText("");
+        etiqAModificarTelefonoHistoriaPostulante.setText("");
+        etiqAModificarMailHistoriaPostulante.setText("");
+        etiqAModificarLinkedinHistoriaPostulante.setText("");
+        etiqAModificarFormatoHistoriaPostulante.setText("");
     }
 
     @SuppressWarnings("unchecked")

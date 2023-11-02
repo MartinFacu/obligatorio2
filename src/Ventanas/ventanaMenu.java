@@ -104,6 +104,11 @@ public class ventanaMenu extends javax.swing.JFrame {
         jMenu1.add(opcionHistorial);
 
         opcionConsultaTema.setText("Consulta pot temática");
+        opcionConsultaTema.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opcionConsultaTemaActionPerformed(evt);
+            }
+        });
         jMenu1.add(opcionConsultaTema);
 
         jMenuBar1.add(jMenu1);
@@ -163,6 +168,11 @@ public class ventanaMenu extends javax.swing.JFrame {
         ventanaRegistroPuesto ventanaRegistroPuestoo = new ventanaRegistroPuesto(modelo); 
         ventanaRegistroPuestoo.setVisible(true);
     }//GEN-LAST:event_opcionRegistroPuestoActionPerformed
+
+    private void opcionConsultaTemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionConsultaTemaActionPerformed
+        ventanaConsultaTema ventanaConsultaTemaa = new ventanaConsultaTema(modelo); 
+        ventanaConsultaTemaa.setVisible(true);
+    }//GEN-LAST:event_opcionConsultaTemaActionPerformed
 
     /**
      * @param args the command line arguments

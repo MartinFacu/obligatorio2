@@ -242,5 +242,25 @@ public class Sistema {
         });
         return entrevistasFiltradas;
     }
+    public int cantidadDePersonasQueSabenDelTema(Tematica temaASaber){
+        int cantidad=0;
+        for(Postulante pos : this.getPostulantes()){
+            if(pos.getTemas().containsKey(temaASaber)){
+                if(pos.getTemas().get(temaASaber)>=5){
+                    cantidad++;
+                }
+            }
+        }
+        return cantidad;
+    }
     
+    public int cantidadDePuestosQueNecesitan(Tematica temaASaber){
+        int cantidad=0;
+        for(Puesto pues : this.getPuestos()){
+            if(pues.getTemas().contains(temaASaber)){
+                cantidad++;
+            }
+        }
+        return cantidad;
+    }
 }
