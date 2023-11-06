@@ -1,6 +1,7 @@
 package Ventanas;
 import java.util.HashMap;
 import javax.swing.ButtonModel;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import zFuncionamiento.*;
 public class ventanaAltaPostulante extends javax.swing.JFrame {
@@ -249,11 +250,14 @@ public class ventanaAltaPostulante extends javax.swing.JFrame {
     }//GEN-LAST:event_butCancelarAltaPostulanteActionPerformed
 
     private void butSiguienteAltaPostulanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butSiguienteAltaPostulanteActionPerformed
+        
+        try{
+        int unaCed = Integer.parseInt(txtCedulaAltaPostulante.getText());
+        int unNumCel = Integer.parseInt(txtTelefonoAltaPostulante.getText());
+        if(modelo.verificacionCedulaPostulantes(unaCed)){
         String unLinkedin = txtLinkedinAltaPostulante.getText();
         String unMail = txtMailAltaPostulante.getText();
-        int unNumCel = Integer.parseInt(txtTelefonoAltaPostulante.getText());
         String unaDirec = txtDireccionAltaPostulante.getText();
-        int unaCed = Integer.parseInt(txtCedulaAltaPostulante.getText());
         String unNombre = txtNombreAltaPostulante.getText();
         String formato ="";
         if (radbutMixtoAltaPostulante.isSelected()){
@@ -265,9 +269,17 @@ public class ventanaAltaPostulante extends javax.swing.JFrame {
                 formato = "Remoto";
             }
         }
-        System.out.println("Formato " + formato);
+        limpiarCampos();
         ventanaAltaNivel ventanaAltaNivel = new ventanaAltaNivel(modelo, unLinkedin, unMail, unNumCel, unaDirec, unaCed, unNombre, formato);
         ventanaAltaNivel.setVisible(true);
+        
+        }else{
+            JOptionPane.showMessageDialog(null,"cedula ya registrada ","Error", 0);
+        }
+        }catch(NumberFormatException a){
+            JOptionPane.showMessageDialog(null,"los campos telefono y cedula deben ser numeros ","Error", 0);
+        }
+        
     }//GEN-LAST:event_butSiguienteAltaPostulanteActionPerformed
 
 
@@ -297,4 +309,13 @@ public class ventanaAltaPostulante extends javax.swing.JFrame {
     private javax.swing.JTextField txtTelefonoAltaPostulante;
     // End of variables declaration//GEN-END:variables
     private Sistema modelo;
+    private void limpiarCampos() {                                                        
+        txtCedulaAltaPostulante.setText("");
+        txtDireccionAltaPostulante.setText("");
+        txtLinkedinAltaPostulante.setText("");
+        txtMailAltaPostulante.setText("");
+        txtNombreAltaPostulante.setText("");
+        txtTelefonoAltaPostulante.setText("");
+        
+    }
 }

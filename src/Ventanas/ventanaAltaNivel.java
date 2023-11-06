@@ -1,6 +1,7 @@
 
 package Ventanas;
 import java.util.HashMap;
+import javax.swing.JOptionPane;
 import zFuncionamiento.*;
 
 public class ventanaAltaNivel extends javax.swing.JFrame {
@@ -197,6 +198,7 @@ public class ventanaAltaNivel extends javax.swing.JFrame {
         modelo.limpiarHashMap();
         listTematicasAltaNiveles.setListData(modelo.darDatosDelHash().toArray());
         System.out.println(postulante);
+        JOptionPane.showMessageDialog(null,"Postulante agregado","Info", 1);
         this.dispose();
     }//GEN-LAST:event_butRegistrarAltaNivelesActionPerformed
 

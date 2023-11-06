@@ -5,6 +5,7 @@
 package Ventanas;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import zFuncionamiento.*;
 
 /**
@@ -252,6 +253,8 @@ public class ventanaRegistroPuesto extends javax.swing.JFrame {
         }
         Puesto nuevoPuesto = new Puesto(nombre, formato, this.temasElegidos);
         modelo.agregarPuesto(nuevoPuesto);
+        JOptionPane.showMessageDialog(null,"Entrevista agregada","Info", 1);
+        limpiarCampos();
     }//GEN-LAST:event_butAplicarRegistroPuestoActionPerformed
 
     
@@ -283,6 +286,10 @@ public class ventanaRegistroPuesto extends javax.swing.JFrame {
     public void cargarListas(){
         listTemasPosiblesRegistroPuesto.setListData(modelo.getTematicas().toArray());
         listTemasElegidosRegistroPuesto.setListData(this.temasElegidos.toArray());
+    }
+    
+    private void limpiarCampos() {                                                        
+        txtNombreRegistroPuesto.setText("");
     }
     
 }

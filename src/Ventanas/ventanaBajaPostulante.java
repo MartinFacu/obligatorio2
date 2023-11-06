@@ -4,6 +4,7 @@
  */
 package Ventanas;
 
+import javax.swing.JOptionPane;
 import zFuncionamiento.*;
 
 /**
@@ -121,6 +122,7 @@ public class ventanaBajaPostulante extends javax.swing.JFrame {
     private void butAplicarBajaPostulanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAplicarBajaPostulanteActionPerformed
         Postulante postulanteSeleccionado = (Postulante) listPostulantesBajaPostulante.getSelectedValue();
         modelo.eliminarUnPostulante(postulanteSeleccionado);
+        JOptionPane.showMessageDialog(null,"Postulante eliminado","Info", 1);
         listPostulantesBajaPostulante.setListData(modelo.getPostulantes().toArray());
     }//GEN-LAST:event_butAplicarBajaPostulanteActionPerformed
 

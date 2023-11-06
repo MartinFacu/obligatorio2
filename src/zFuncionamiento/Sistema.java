@@ -258,4 +258,23 @@ public class Sistema  implements Serializable {
         }
         return cantidad;
     }
+    
+    public Boolean verificacionCedulaPostulantes(int unaCed){
+        Boolean sirve=true;
+        for(Postulante pos : this.getPostulantes()){
+            if(pos.getCedula()==unaCed){
+                sirve = false;
+            }
+        }
+        return sirve;
+    }
+    public Boolean verificacionCedulaEntrevistadores(int unaCed){
+        Boolean sirve=true;
+        for(Entrevistador entr : this.getEntrevistadores()){
+            if(entr.getCedula()==unaCed){
+                sirve = false;
+            }
+        }
+        return sirve;
+    }
 }

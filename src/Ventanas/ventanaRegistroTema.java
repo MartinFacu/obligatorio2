@@ -5,6 +5,7 @@
 package Ventanas;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import zFuncionamiento.*;
 
 /**
@@ -93,6 +94,8 @@ public class ventanaRegistroTema extends javax.swing.JFrame {
         String nombre = txtNombreRegTematica.getText();
         Tematica tema = new Tematica(nombre, descripcion);
         modelo.agregarUnaTematica(tema);
+        JOptionPane.showMessageDialog(null,"Entrevista agregada","Info", 1);
+        limpiarCampos();
     }//GEN-LAST:event_butRegistrarRegTematicaActionPerformed
 
     /**
@@ -110,4 +113,9 @@ public class ventanaRegistroTema extends javax.swing.JFrame {
     private javax.swing.JTextField txtNombreRegTematica;
     // End of variables declaration//GEN-END:variables
     private Sistema modelo;
+    
+    private void limpiarCampos() {                                                        
+        txtDescripcionRegTematica.setText("");
+        txtNombreRegTematica.setText("");
+    }
 }

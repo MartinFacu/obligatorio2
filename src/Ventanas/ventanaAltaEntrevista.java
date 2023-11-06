@@ -5,6 +5,7 @@
 package Ventanas;
 
 import static java.lang.Integer.parseInt;
+import javax.swing.JOptionPane;
 import zFuncionamiento.*;
 
 /**
@@ -138,9 +139,9 @@ public class ventanaAltaEntrevista extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(etiqTitAltaEntevista, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(etiqListaPostulantesAltaEntevista)
-                    .addComponent(etiqListaEntrevistadoresAltaEntevista)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(etiqListaPostulantesAltaEntevista, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(etiqListaEntrevistadoresAltaEntevista, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(etiqPuntajeAltaEntevista))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -184,6 +185,7 @@ public class ventanaAltaEntrevista extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPuntajeAltaEntevistaActionPerformed
 
     private void butAplicarAltaEntrevistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAplicarAltaEntrevistaActionPerformed
+        try{
         String comentariosEntrevista = txtComentariosAltaEntevista.getText();
         int puntajeEntrevista = parseInt(txtPuntajeAltaEntevista.getText());
         Entrevistador entrevistadorSelec = (Entrevistador) listEntrevistadoresAltaEntevista.getSelectedValue();
@@ -191,6 +193,11 @@ public class ventanaAltaEntrevista extends javax.swing.JFrame {
         int numeroCorrelativo = modelo.getEntrevistas().size()+1;
         Entrevista entrevistaCreada = new Entrevista(entrevistadorSelec, postulanteSelec, puntajeEntrevista, comentariosEntrevista, numeroCorrelativo);
         modelo.agregarEntrevista(entrevistaCreada);
+        JOptionPane.showMessageDialog(null,"Entrevista agregada","Info", 1);
+        limpiarCampos();
+        }catch(NumberFormatException a){
+            JOptionPane.showMessageDialog(null,"El campo Puntaje Entrevista debe ser numero ","Error", 0);
+        }
     }//GEN-LAST:event_butAplicarAltaEntrevistaActionPerformed
 
 
@@ -212,4 +219,8 @@ public class ventanaAltaEntrevista extends javax.swing.JFrame {
     private javax.swing.JTextField txtPuntajeAltaEntevista;
     // End of variables declaration//GEN-END:variables
     private Sistema modelo;
+    private void limpiarCampos() {                                                        
+        txtComentariosAltaEntevista.setText("");
+        txtPuntajeAltaEntevista.setText("");
+    }
 }
