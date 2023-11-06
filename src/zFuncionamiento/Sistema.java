@@ -1,14 +1,9 @@
 package zFuncionamiento;
 
-import Ventanas.*;
-import Main.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Iterator;
+import java.util.*;
+import java.io.Serializable;
 
-public class Sistema {
+public class Sistema  implements Serializable {
     private ArrayList<Entrevista> entrevistas;
     private ArrayList<Puesto> puestos;
     private ArrayList<Entrevistador> entrevistadores;

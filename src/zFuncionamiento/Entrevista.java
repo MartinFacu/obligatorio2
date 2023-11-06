@@ -1,6 +1,8 @@
 package zFuncionamiento;
 
-public class Entrevista {
+import java.io.Serializable;
+
+public class Entrevista implements Serializable{
     private Entrevistador entrevistador;
     private Postulante postulante;
     private int puntaje;

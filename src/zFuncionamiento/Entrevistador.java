@@ -2,8 +2,9 @@ package zFuncionamiento;
 
 import Ventanas.*;
 import Main.*;
+import java.io.Serializable;
 
-public class Entrevistador {
+public class Entrevistador implements Serializable{
     private String nombre;
     private int cedula;
     private String direccion;

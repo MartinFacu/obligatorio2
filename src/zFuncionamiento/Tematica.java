@@ -2,8 +2,9 @@ package zFuncionamiento;
 
 import Ventanas.*;
 import Main.*;
+import java.io.Serializable;
 
-public class Tematica {
+public class Tematica implements Serializable {
     private String nombre;
     private String descripcion;
     
