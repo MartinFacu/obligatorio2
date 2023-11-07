@@ -3,7 +3,7 @@ package zFuncionamiento;
 import java.util.*;
 import java.io.Serializable;
 
-public class Sistema  implements Serializable {
+public class Sistema extends Observable implements Serializable {
     private ArrayList<Entrevista> entrevistas;
     private ArrayList<Puesto> puestos;
     private ArrayList<Entrevistador> entrevistadores;

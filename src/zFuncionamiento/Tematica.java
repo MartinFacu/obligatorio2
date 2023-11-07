@@ -3,8 +3,9 @@ package zFuncionamiento;
 import Ventanas.*;
 import Main.*;
 import java.io.Serializable;
+import java.util.Observable;
 
-public class Tematica implements Serializable {
+public class Tematica extends Observable implements Serializable {
     private String nombre;
     private String descripcion;
     

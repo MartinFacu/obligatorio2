@@ -119,7 +119,7 @@ public class ventanaSeleccionSistema extends javax.swing.JFrame {
             }
         }
         //datos precargados para testeo
-        /*
+        
         Tematica tema1 = new Tematica("HashMapeador","Anashee");
         Tematica tema2 = new Tematica("Javador","Anashee222");
         Tematica tema3 = new Tematica("javascripteador","Anashee3");
@@ -132,7 +132,9 @@ public class ventanaSeleccionSistema extends javax.swing.JFrame {
         hashMap.put(tema1, 5);
         hashMap.put(tema2, 3);
         Postulante postulante1 = new Postulante("Presencial", "linkedelfalo.com", "falo@gmail", 99234, "Bulevar Artigas", 123456, "Falo", hashMap);
+        Postulante postulantex = new Postulante("Presencial", "linkedelfalo.com", "falo@gmail", 99234, "Bulevar Artigas", 1235541, "Falox", hashMap);
         sistema.agregarPostulante(postulante1);
+        sistema.agregarPostulante(postulantex);
         HashMap<Tematica, Integer> hashMap2 = new HashMap<>();
         hashMap2.put(tema3, 7);
         hashMap2.put(tema4, 2);
@@ -162,7 +164,7 @@ public class ventanaSeleccionSistema extends javax.swing.JFrame {
         Puesto puesto2 = new Puesto("puesto2", "Remoto", arr2);
         sistema.agregarPuesto(puesto1);
         sistema.agregarPuesto(puesto2);
-        */
+        
         ventanaMenu ventana = new ventanaMenu(sistema);
         ventana.setVisible(true);
         

@@ -1,15 +1,18 @@
 
 package Ventanas;
 
+import java.util.Observable;
+import java.util.Observer;
 import zFuncionamiento.*;
 
-public class ventanaConsultaTema extends javax.swing.JFrame {
+public class ventanaConsultaTema extends javax.swing.JFrame implements Observer{
     public ventanaConsultaTema(Sistema unSistema) {
         initComponents();
         modelo = unSistema;
         listTematicasConsultaPorTematica.setListData(modelo.getTematicas().toArray());
         etiqAModificarCantQueSabenConsultaPorTematica.setText("");
         etiqAModificarPuestosQueNecesitanConsultaPorTematica.setText("");
+        modelo.addObserver(this);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -140,4 +143,9 @@ public class ventanaConsultaTema extends javax.swing.JFrame {
     private javax.swing.JList listTematicasConsultaPorTematica;
     // End of variables declaration//GEN-END:variables
     private Sistema modelo;
+
+    @Override
+    public void update(Observable o, Object arg) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

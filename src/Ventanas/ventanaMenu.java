@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Observer;
 import zFuncionamiento.*;
 public class ventanaMenu extends javax.swing.JFrame {
 
@@ -201,5 +202,5 @@ public class ventanaMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem opcionRegistroTema;
     // End of variables declaration//GEN-END:variables
     
-    private Sistema modelo; 
+    private Sistema modelo;
 }

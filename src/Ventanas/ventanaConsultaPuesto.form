@@ -211,6 +211,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butCancelarConsutarPuestoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="butExportarConsutarPuesto">
           <Properties>
@@ -219,6 +222,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Exportar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butExportarConsutarPuestoActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

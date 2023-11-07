@@ -1,10 +1,12 @@
 
 package Ventanas;
 import java.util.HashMap;
+import java.util.Observable;
+import java.util.Observer;
 import javax.swing.JOptionPane;
 import zFuncionamiento.*;
 
-public class ventanaAltaNivel extends javax.swing.JFrame {
+public class ventanaAltaNivel extends javax.swing.JFrame implements Observer {
 
     public ventanaAltaNivel(Sistema unSistema, String unLinkedin, String unMail, int unNumCel, String unaDirec, int unaCed, String unNombre, String unFormato) {
         initComponents();
@@ -16,8 +18,8 @@ public class ventanaAltaNivel extends javax.swing.JFrame {
         this.cedula = unaCed;
         this.nombre = unNombre;
         this.formato = unFormato;
-        cargarDatosCombo();
-        listTematicasAltaNiveles.setListData(modelo.darDatosDelHash().toArray());
+        cargarDatos();
+        modelo.addObserver(this);
     }
 
     @SuppressWarnings("unchecked")
@@ -250,9 +252,16 @@ public class ventanaAltaNivel extends javax.swing.JFrame {
     private String mail;
     private String linkedin;
     private String formato;
+
+    @Override
+    public void update(Observable o, Object arg) {
+        cargarDatos();
+    }
     
-    
-    public void cargarDatosCombo(){
+    public void cargarDatos(){
+        //cargo datos lista
+        listTematicasAltaNiveles.setListData(modelo.darDatosDelHash().toArray());
+        //cargo datos combo
         combTemaElegidoAltaNiveles.removeAllItems();
         for (Tematica tematica : modelo.getTematicas()) {
             combTemaElegidoAltaNiveles.addItem(tematica);

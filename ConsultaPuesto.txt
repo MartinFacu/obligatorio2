@@ -1,0 +1,3 @@
+Puesto{nombre=puesto2, tipo=Remoto, temas=[javascripteador, Csseador]} :
+1) Postulante{nombre=morsaloca, cedula=6789, direccion=Villas, formato=Remoto, temas={Csseador=2, javascripteador=7}}
+2) Postulante{nombre=Morsaa, cedula=6789, direccion=Villas, formato=Remoto, temas={Csseador=2, javascripteador=7}}

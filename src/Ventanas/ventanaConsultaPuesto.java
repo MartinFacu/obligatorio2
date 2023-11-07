@@ -1,21 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Ventanas;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Formatter;
+import java.util.Observable;
+import java.util.Observer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import zFuncionamiento.*;
 
-public class ventanaConsultaPuesto extends javax.swing.JFrame {
+public class ventanaConsultaPuesto extends javax.swing.JFrame implements Observer {
 
-    /**
-     * Creates new form ventanaConsultaPuesto
-     */
     public ventanaConsultaPuesto(Sistema unSistema) {
         initComponents();
         modelo=unSistema;
         cargarListasSinNada();
+        modelo.addObserver(this);
     }
 
     @SuppressWarnings("unchecked")
@@ -75,9 +76,19 @@ public class ventanaConsultaPuesto extends javax.swing.JFrame {
 
         butCancelarConsutarPuesto.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         butCancelarConsutarPuesto.setText("Cancelar");
+        butCancelarConsutarPuesto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butCancelarConsutarPuestoActionPerformed(evt);
+            }
+        });
 
         butExportarConsutarPuesto.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         butExportarConsutarPuesto.setText("Exportar");
+        butExportarConsutarPuesto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butExportarConsutarPuestoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -155,8 +166,31 @@ public class ventanaConsultaPuesto extends javax.swing.JFrame {
         int nivel = (int) spinnNivelConsutarPuesto.getValue();
         ArrayList<Tematica> temasDelPuesto=puestoSeleccionado.getTemas();
         String formatoDelPuesto=puestoSeleccionado.getTipo();
+        puestoSeleccionadoGeneral = puestoSeleccionado;
         cargarListasFiltrados(temasDelPuesto, nivel, formatoDelPuesto);
     }//GEN-LAST:event_butConsularConsutarPuestoActionPerformed
+
+    private void butExportarConsutarPuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butExportarConsutarPuestoActionPerformed
+        
+        
+        try {
+            FileWriter fr = new FileWriter("ConsultaPuesto.txt");
+            Formatter arch = new Formatter(fr);
+            arch.format("%s%n",puestoSeleccionadoGeneral+" :");
+            int i=0;
+            for(Postulante pos : postulantesFiltrados){
+                i++;
+                arch.format("%s%n",i+") "+pos);
+            }
+            arch.close();
+        } catch (IOException ex) {
+            System.out.println("No puedo crear el archivo");
+        }
+    }//GEN-LAST:event_butExportarConsutarPuestoActionPerformed
+
+    private void butCancelarConsutarPuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butCancelarConsutarPuestoActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_butCancelarConsutarPuestoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butCancelarConsutarPuesto;
@@ -175,6 +209,8 @@ public class ventanaConsultaPuesto extends javax.swing.JFrame {
     private javax.swing.JSpinner spinnNivelConsutarPuesto;
     // End of variables declaration//GEN-END:variables
     private Sistema modelo;
+    private ArrayList<Postulante> postulantesFiltrados;
+    private Puesto puestoSeleccionadoGeneral;
     
     public void cargarListasSinNada(){
         listPuestosConsutarPuesto.setListData(modelo.getPuestos().toArray());
@@ -182,10 +218,30 @@ public class ventanaConsultaPuesto extends javax.swing.JFrame {
     }
     public void cargarListasFiltrados(ArrayList<Tematica> temasParaFiltrar, int nivelAFiltrar, String formatoDelPuesto){
         ArrayList<Postulante> listaFiltroNivel= modelo.getPostulantesFiltradosPorNivel(temasParaFiltrar, nivelAFiltrar);
+        System.out.println("Luego de ser filtrados por el nivel y tematica : ");
+        listasMuestra (listaFiltroNivel);
         ArrayList<Postulante> listaFiltroFormato=modelo.getPostulantesFiltradosPorFormato(listaFiltroNivel, formatoDelPuesto);
+        System.out.println("Luego de ser filtrados por formato : ");
+        listasMuestra (listaFiltroFormato);
         ArrayList<Postulante> listaFiltroEntrevista=modelo.getPostulantesFiltradosPorEntrevista(listaFiltroFormato);
+        System.out.println("Luego de ser filtrados por entrevistas : ");
+        listasMuestra (listaFiltroEntrevista);
         ArrayList<Postulante> listaFiltroFinal=modelo.getPostulantesFiltradosPorEntrevistaPuntaje(listaFiltroEntrevista);
+        System.out.println("Luego de ser filtrados por puntaje en entrevistas : ");
+        listasMuestra (listaFiltroFinal);
         listPostulantesConsutarPuesto.setListData(listaFiltroFinal.toArray());
+        postulantesFiltrados = listaFiltroFinal;
         listPuestosConsutarPuesto.setListData(modelo.getPuestos().toArray());
+    }
+    
+    public void listasMuestra (ArrayList<Postulante> lista){
+        for(Postulante pos : lista){
+            System.out.println(pos);
+        }
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

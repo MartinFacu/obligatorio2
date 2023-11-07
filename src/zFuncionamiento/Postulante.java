@@ -3,7 +3,7 @@ import Ventanas.*;
 import Main.*;
 import java.io.Serializable;
 import java.util.*;
-public class Postulante implements Serializable{
+public class Postulante extends Observable implements Serializable{
     private String nombre;
     private int cedula;
     private String direccion;

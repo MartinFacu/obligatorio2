@@ -1,15 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Ventanas;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Observable;
+import java.util.Observer;
 import javax.swing.table.DefaultTableModel;
 import zFuncionamiento.*;
 
-public class ventanaHistoriaPostulante extends javax.swing.JFrame {
+public class ventanaHistoriaPostulante extends javax.swing.JFrame implements Observer {
 
     public ventanaHistoriaPostulante(Sistema unSistema) {
         initComponents();
@@ -23,6 +22,7 @@ public class ventanaHistoriaPostulante extends javax.swing.JFrame {
         etiqAModificarMailHistoriaPostulante.setText("");
         etiqAModificarLinkedinHistoriaPostulante.setText("");
         etiqAModificarFormatoHistoriaPostulante.setText("");
+        modelo.addObserver(this);
     }
 
     @SuppressWarnings("unchecked")
@@ -187,7 +187,6 @@ public class ventanaHistoriaPostulante extends javax.swing.JFrame {
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(93, 93, 93)
                                 .addComponent(butBuscarHistoriaPostulante, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -288,7 +287,7 @@ public class ventanaHistoriaPostulante extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane4)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(1369, 1369, 1369))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -298,7 +297,7 @@ public class ventanaHistoriaPostulante extends javax.swing.JFrame {
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        setBounds(0, 0, 853, 1021);
+        setBounds(0, 0, 877, 1021);
     }// </editor-fold>//GEN-END:initComponents
 
     private void listPostulantesHistoriaPostulanteValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listPostulantesHistoriaPostulanteValueChanged
@@ -363,4 +362,9 @@ public class ventanaHistoriaPostulante extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     private Sistema modelo;
     private Postulante post;
+
+    @Override
+    public void update(Observable o, Object arg) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

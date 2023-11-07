@@ -1,27 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Ventanas;
 
 import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
 import javax.swing.JOptionPane;
 import zFuncionamiento.*;
+public class ventanaRegistroPuesto extends javax.swing.JFrame implements Observer {
 
-/**
- *
- * @author santi
- */
-public class ventanaRegistroPuesto extends javax.swing.JFrame {
-
-    /**
-     * Creates new form ventanaRegistroPuesto
-     */
     public ventanaRegistroPuesto(Sistema unSistema) {
         initComponents();
         this.modelo=unSistema;
         temasElegidos = new ArrayList<>();
         cargarListas();
+        modelo.addObserver(this);
     }
 
     
@@ -290,6 +282,11 @@ public class ventanaRegistroPuesto extends javax.swing.JFrame {
     
     private void limpiarCampos() {                                                        
         txtNombreRegistroPuesto.setText("");
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }

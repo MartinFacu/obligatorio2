@@ -4,22 +4,18 @@
  */
 package Ventanas;
 
+import java.util.Observable;
+import java.util.Observer;
 import javax.swing.JOptionPane;
 import zFuncionamiento.*;
 
-/**
- *
- * @author santi
- */
-public class ventanaBajaPostulante extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ventanaBajaPostulante
-     */
+public class ventanaBajaPostulante extends javax.swing.JFrame implements Observer {
     public ventanaBajaPostulante(Sistema unSistema) {
         initComponents();
         this.modelo=unSistema;
         listPostulantesBajaPostulante.setListData(modelo.getPostulantes().toArray());
+        modelo.addObserver(this);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -79,7 +75,7 @@ public class ventanaBajaPostulante extends javax.swing.JFrame {
                             .addComponent(etiqPostulantesBajaPostulante, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(butCancelarBajaPostulante, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(butCancelarBajaPostulante)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(butAplicarBajaPostulante, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -141,5 +137,10 @@ public class ventanaBajaPostulante extends javax.swing.JFrame {
     private javax.swing.JList listPostulantesBajaPostulante;
     // End of variables declaration//GEN-END:variables
     private Sistema modelo;
+
+    @Override
+    public void update(Observable o, Object arg) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }

@@ -2,8 +2,9 @@ package zFuncionamiento;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Observable;
 
-public class Puesto implements Serializable{
+public class Puesto extends Observable implements Serializable{
     private String nombre;
     private String tipo;
     private ArrayList<Tematica> temas;

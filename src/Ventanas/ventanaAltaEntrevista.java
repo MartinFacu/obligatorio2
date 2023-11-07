@@ -5,19 +5,16 @@
 package Ventanas;
 
 import static java.lang.Integer.parseInt;
+import java.util.Observable;
+import java.util.Observer;
 import javax.swing.JOptionPane;
 import zFuncionamiento.*;
-
-/**
- *
- * @author santi
- */
-public class ventanaAltaEntrevista extends javax.swing.JFrame {
+public class ventanaAltaEntrevista extends javax.swing.JFrame implements Observer {
     public ventanaAltaEntrevista(Sistema unSistema) {
         initComponents();
         modelo=unSistema;
-        listEntrevistadoresAltaEntevista.setListData(modelo.getEntrevistadores().toArray());
-        listPostulantesAltaEntevista.setListData(modelo.getPostulantes().toArray());
+        cargarListas();
+        modelo.addObserver(this);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -181,7 +178,7 @@ public class ventanaAltaEntrevista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtPuntajeAltaEntevistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPuntajeAltaEntevistaActionPerformed
-        // TODO add your handling code here:
+     
     }//GEN-LAST:event_txtPuntajeAltaEntevistaActionPerformed
 
     private void butAplicarAltaEntrevistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAplicarAltaEntrevistaActionPerformed
@@ -222,5 +219,15 @@ public class ventanaAltaEntrevista extends javax.swing.JFrame {
     private void limpiarCampos() {                                                        
         txtComentariosAltaEntevista.setText("");
         txtPuntajeAltaEntevista.setText("");
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        cargarListas();
+    }
+    
+    public void cargarListas(){
+        listEntrevistadoresAltaEntevista.setListData(modelo.getEntrevistadores().toArray());
+        listPostulantesAltaEntevista.setListData(modelo.getPostulantes().toArray());
     }
 }

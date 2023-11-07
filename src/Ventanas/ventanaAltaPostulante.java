@@ -1,5 +1,6 @@
 package Ventanas;
 import java.util.HashMap;
+import java.util.Observable;
 import javax.swing.ButtonModel;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
