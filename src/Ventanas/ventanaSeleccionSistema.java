@@ -101,24 +101,8 @@ public class ventanaSeleccionSistema extends javax.swing.JFrame {
     private void butAceptarSeleccionSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAceptarSeleccionSistemaActionPerformed
         Sistema sistema = new Sistema();
         if (radbutNoSeleccionSistema.isSelected()){
-        }else{
-            if(radbutSiSeleccionSistema.isSelected()){
-                try {
-                    FileInputStream f = new FileInputStream("sistemita.ser");
-                    BufferedInputStream b = new BufferedInputStream(f);
-                    ObjectInputStream s = new ObjectInputStream(b);
-                    sistema =(Sistema) s.readObject();
-                    s.close();
-                } catch (IOException e) {
-                    System.out.println("Error de archivo");
-                    System.exit(1);
-                } catch (ClassNotFoundException ex) {
-                    System.out.println("Clase no encontrada");
-                    System.exit(1);
-                }
-            }
-        }
-        //datos precargados para testeo
+            this.dispose();
+            //datos precargados para testeo
         
         Tematica tema1 = new Tematica("HashMapeador","Anashee");
         Tematica tema2 = new Tematica("Javador","Anashee222");
@@ -167,6 +151,27 @@ public class ventanaSeleccionSistema extends javax.swing.JFrame {
         
         ventanaMenu ventana = new ventanaMenu(sistema);
         ventana.setVisible(true);
+        }else{
+            if(radbutSiSeleccionSistema.isSelected()){
+                try {
+                    FileInputStream f = new FileInputStream("sistemita.ser");
+                    BufferedInputStream b = new BufferedInputStream(f);
+                    ObjectInputStream s = new ObjectInputStream(b);
+                    sistema =(Sistema) s.readObject();
+                    s.close();
+                } catch (IOException e) {
+                    System.out.println("Error de archivo");
+                    System.exit(1);
+                } catch (ClassNotFoundException ex) {
+                    System.out.println("Clase no encontrada");
+                    System.exit(1);
+                }
+                this.dispose();
+                ventanaMenu ventana = new ventanaMenu(sistema);
+        ventana.setVisible(true);
+            }
+        }
+        
         
     }//GEN-LAST:event_butAceptarSeleccionSistemaActionPerformed
 

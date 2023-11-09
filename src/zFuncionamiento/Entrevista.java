@@ -70,7 +70,7 @@ public class Entrevista extends Observable implements Serializable{
             // De lo contrario, simplemente agregamos el texto en negro
             textoAMostrar += arrayDeComentarios[i] + " ";
         }
-    }
+        }
     
     return "<html>" + textoAMostrar + "</html>";
     }

@@ -9,9 +9,8 @@ public class ventanaConsultaTema extends javax.swing.JFrame implements Observer{
     public ventanaConsultaTema(Sistema unSistema) {
         initComponents();
         modelo = unSistema;
-        listTematicasConsultaPorTematica.setListData(modelo.getTematicas().toArray());
-        etiqAModificarCantQueSabenConsultaPorTematica.setText("");
-        etiqAModificarPuestosQueNecesitanConsultaPorTematica.setText("");
+        cargarLista();
+        limpiarCampos();
         modelo.addObserver(this);
     }
     @SuppressWarnings("unchecked")
@@ -143,9 +142,20 @@ public class ventanaConsultaTema extends javax.swing.JFrame implements Observer{
     private javax.swing.JList listTematicasConsultaPorTematica;
     // End of variables declaration//GEN-END:variables
     private Sistema modelo;
+    
+    private void limpiarCampos(){
+        etiqAModificarCantQueSabenConsultaPorTematica.setText("");
+        etiqAModificarPuestosQueNecesitanConsultaPorTematica.setText("");
+    }
 
     @Override
     public void update(Observable o, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        limpiarCampos();
+        cargarLista();
     }
+    
+    private void cargarLista(){
+        listTematicasConsultaPorTematica.setListData(modelo.getTematicas().toArray());
+    }
+    
 }

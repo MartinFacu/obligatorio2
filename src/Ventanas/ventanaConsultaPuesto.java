@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import java.util.Formatter;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import zFuncionamiento.*;
 
 public class ventanaConsultaPuesto extends javax.swing.JFrame implements Observer {
@@ -162,12 +160,9 @@ public class ventanaConsultaPuesto extends javax.swing.JFrame implements Observe
     }// </editor-fold>//GEN-END:initComponents
 
     private void butConsularConsutarPuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butConsularConsutarPuestoActionPerformed
-        Puesto puestoSeleccionado=(Puesto) listPuestosConsutarPuesto.getSelectedValue();
-        int nivel = (int) spinnNivelConsutarPuesto.getValue();
-        ArrayList<Tematica> temasDelPuesto=puestoSeleccionado.getTemas();
-        String formatoDelPuesto=puestoSeleccionado.getTipo();
-        puestoSeleccionadoGeneral = puestoSeleccionado;
-        cargarListasFiltrados(temasDelPuesto, nivel, formatoDelPuesto);
+        puestoSeleccionadoGeneral=(Puesto) listPuestosConsutarPuesto.getSelectedValue();
+        nivelGeneral = (int) spinnNivelConsutarPuesto.getValue();
+        cargarListasFiltrados();
     }//GEN-LAST:event_butConsularConsutarPuestoActionPerformed
 
     private void butExportarConsutarPuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butExportarConsutarPuestoActionPerformed
@@ -211,13 +206,17 @@ public class ventanaConsultaPuesto extends javax.swing.JFrame implements Observe
     private Sistema modelo;
     private ArrayList<Postulante> postulantesFiltrados;
     private Puesto puestoSeleccionadoGeneral;
+    private int nivelGeneral;
+    
     
     public void cargarListasSinNada(){
         listPuestosConsutarPuesto.setListData(modelo.getPuestos().toArray());
         listPostulantesConsutarPuesto.setListData(modelo.getPostulantes().toArray());
     }
-    public void cargarListasFiltrados(ArrayList<Tematica> temasParaFiltrar, int nivelAFiltrar, String formatoDelPuesto){
-        ArrayList<Postulante> listaFiltroNivel= modelo.getPostulantesFiltradosPorNivel(temasParaFiltrar, nivelAFiltrar);
+    public void cargarListasFiltrados(){
+        String formatoDelPuesto = puestoSeleccionadoGeneral.getTipo();
+        ArrayList<Tematica> temasDelPuesto=puestoSeleccionadoGeneral.getTemas();
+        ArrayList<Postulante> listaFiltroNivel= modelo.getPostulantesFiltradosPorNivel(temasDelPuesto, nivelGeneral);
         System.out.println("Luego de ser filtrados por el nivel y tematica : ");
         listasMuestra (listaFiltroNivel);
         ArrayList<Postulante> listaFiltroFormato=modelo.getPostulantesFiltradosPorFormato(listaFiltroNivel, formatoDelPuesto);
@@ -242,6 +241,13 @@ public class ventanaConsultaPuesto extends javax.swing.JFrame implements Observe
 
     @Override
     public void update(Observable o, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       // vuelvo a filtrar la lista general manteniendo los filtros
+        cargarListasFiltrados();
+       // cargo la lista de puestos
+       listPuestosConsutarPuesto.setListData(modelo.getPuestos().toArray());
+       
     }
+    
+    
+    
 }

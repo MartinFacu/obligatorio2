@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Ventanas;
 
 import java.util.Observable;
@@ -14,7 +11,7 @@ public class ventanaBajaPostulante extends javax.swing.JFrame implements Observe
     public ventanaBajaPostulante(Sistema unSistema) {
         initComponents();
         this.modelo=unSistema;
-        listPostulantesBajaPostulante.setListData(modelo.getPostulantes().toArray());
+        cargarLista();
         modelo.addObserver(this);
     }
     @SuppressWarnings("unchecked")
@@ -140,7 +137,10 @@ public class ventanaBajaPostulante extends javax.swing.JFrame implements Observe
 
     @Override
     public void update(Observable o, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        cargarLista();
     }
     
+    public void cargarLista(){
+        listPostulantesBajaPostulante.setListData(modelo.getPostulantes().toArray());
+    }
 }

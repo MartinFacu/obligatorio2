@@ -56,6 +56,7 @@ public class Sistema extends Observable implements Serializable {
             }
         }
         System.out.println("Sali de : eliminarUnDatoDelHash");
+        notificarObservers();
     }
 
     public HashMap<Tematica, Integer> getHashMapTematicasConNivel() {
@@ -101,6 +102,7 @@ public class Sistema extends Observable implements Serializable {
     public void agregarPuesto (Puesto unPuesto){
         this.puestos.add(unPuesto);
         System.out.println("Puesto agregada");
+        notificarObservers();
     }
 
     public ArrayList<Entrevistador> getEntrevistadores() {
@@ -110,11 +112,13 @@ public class Sistema extends Observable implements Serializable {
     public void agregarEntrevista (Entrevista unaEntrevista){
         this.entrevistas.add(unaEntrevista);
         System.out.println("Entrevista agregada: " + unaEntrevista);
+        notificarObservers();
     }
 
     public void agregarEntrevistador(Entrevistador entrevistadore) {
         this.entrevistadores.add(entrevistadore);
         System.out.println("entrevistador agregado");
+        notificarObservers();
     }
 
     public ArrayList<Postulante> getPostulantes() {
@@ -124,24 +128,35 @@ public class Sistema extends Observable implements Serializable {
     public void agregarPostulante(Postulante postulante) {
         this.postulantes.add(postulante);
         System.out.println("postulante ingresado");
+        notificarObservers();
     }
     
     public void eliminarUnPostulante(Postulante unPostulante){
         postulantes.remove(unPostulante);
+        // elimino las entrevistas
+        for(Entrevista ent : this.entrevistas){
+            if(ent.getPostulante().equals(unPostulante)){
+                this.entrevistas.remove(unPostulante);
+            }
+        }
+        notificarObservers();
     }
     
     public void agregarUnaTematica(Tematica unTema){
         this.tematicas.add(unTema);
         System.out.println("tema ingresado");
+        notificarObservers();
     }
     
     public void agregarAlHashMap(Tematica unTema, Integer unNivel){
         this.hashMapTematicasConNivel.put(unTema,unNivel);
         System.out.println("Agregado al HashMap");
+        notificarObservers();
     }
     
     public void limpiarHashMap(){
         hashMapTematicasConNivel.clear();
+        notificarObservers();
     }
     
     public ArrayList<Postulante> getPostulantesFiltradosPorNivel(ArrayList<Tematica> temasParaFiltrar, int nivelAFiltrar){
@@ -277,4 +292,9 @@ public class Sistema extends Observable implements Serializable {
         }
         return sirve;
     }
+    
+   public void notificarObservers(){
+        setChanged();
+        notifyObservers();
+   }
 }
