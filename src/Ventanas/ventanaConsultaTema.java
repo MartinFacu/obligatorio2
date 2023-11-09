@@ -26,6 +26,7 @@ public class ventanaConsultaTema extends javax.swing.JFrame implements Observer{
         etiqAModificarCantQueSabenConsultaPorTematica = new javax.swing.JLabel();
         etiqPuestosQueNecesitanConsultaPorTematica = new javax.swing.JLabel();
         etiqAModificarPuestosQueNecesitanConsultaPorTematica = new javax.swing.JLabel();
+        butSalirConsultaTematica = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -59,6 +60,14 @@ public class ventanaConsultaTema extends javax.swing.JFrame implements Observer{
         etiqAModificarPuestosQueNecesitanConsultaPorTematica.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         etiqAModificarPuestosQueNecesitanConsultaPorTematica.setText("jLabel4");
 
+        butSalirConsultaTematica.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        butSalirConsultaTematica.setText("Salir");
+        butSalirConsultaTematica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butSalirConsultaTematicaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -69,17 +78,23 @@ public class ventanaConsultaTema extends javax.swing.JFrame implements Observer{
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(34, 34, 34)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(etiqAModificarCantQueSabenConsultaPorTematica, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(etiqPuestosQueNecesitanConsultaPorTematica, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(etiqAModificarPuestosQueNecesitanConsultaPorTematica, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(etiqTematicasConsultaPorTematica, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(etiqCantQueSabenConsultaPorTematica, javax.swing.GroupLayout.DEFAULT_SIZE, 346, Short.MAX_VALUE))))
+                                .addComponent(etiqCantQueSabenConsultaPorTematica, javax.swing.GroupLayout.DEFAULT_SIZE, 346, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(34, 34, 34)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(etiqAModificarCantQueSabenConsultaPorTematica, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(etiqPuestosQueNecesitanConsultaPorTematica, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(etiqAModificarPuestosQueNecesitanConsultaPorTematica, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(butSalirConsultaTematica, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(37, 37, 37))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(64, 64, 64)
                         .addComponent(etiqTitConsultaPorTematica, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -94,7 +109,7 @@ public class ventanaConsultaTema extends javax.swing.JFrame implements Observer{
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etiqTematicasConsultaPorTematica)
                     .addComponent(etiqCantQueSabenConsultaPorTematica))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -103,8 +118,13 @@ public class ventanaConsultaTema extends javax.swing.JFrame implements Observer{
                         .addComponent(etiqAModificarCantQueSabenConsultaPorTematica)
                         .addGap(29, 29, 29)
                         .addComponent(etiqPuestosQueNecesitanConsultaPorTematica)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(etiqAModificarPuestosQueNecesitanConsultaPorTematica)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(etiqAModificarPuestosQueNecesitanConsultaPorTematica))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(butSalirConsultaTematica)))))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
@@ -130,7 +150,12 @@ public class ventanaConsultaTema extends javax.swing.JFrame implements Observer{
         etiqAModificarPuestosQueNecesitanConsultaPorTematica.setText(cantidadPuestosQueNecesitan+"");
     }//GEN-LAST:event_listTematicasConsultaPorTematicaValueChanged
 
+    private void butSalirConsultaTematicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butSalirConsultaTematicaActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_butSalirConsultaTematicaActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton butSalirConsultaTematica;
     private javax.swing.JLabel etiqAModificarCantQueSabenConsultaPorTematica;
     private javax.swing.JLabel etiqAModificarPuestosQueNecesitanConsultaPorTematica;
     private javax.swing.JLabel etiqCantQueSabenConsultaPorTematica;

@@ -109,6 +109,11 @@ public class ventanaRegistroPuesto extends javax.swing.JFrame implements Observe
 
         butCancelarRegistroPuesto.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         butCancelarRegistroPuesto.setText("Cancelar");
+        butCancelarRegistroPuesto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butCancelarRegistroPuestoActionPerformed(evt);
+            }
+        });
 
         butAplicarRegistroPuesto.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         butAplicarRegistroPuesto.setText("Aplicar");
@@ -248,6 +253,10 @@ public class ventanaRegistroPuesto extends javax.swing.JFrame implements Observe
         JOptionPane.showMessageDialog(null,"Entrevista agregada","Info", 1);
         limpiarCampos();
     }//GEN-LAST:event_butAplicarRegistroPuestoActionPerformed
+
+    private void butCancelarRegistroPuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butCancelarRegistroPuestoActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_butCancelarRegistroPuestoActionPerformed
 
     
 

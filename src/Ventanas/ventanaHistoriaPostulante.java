@@ -51,6 +51,7 @@ public class ventanaHistoriaPostulante extends javax.swing.JFrame implements Obs
         butResetHistoriaPostulante = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         tablaEntrevistasHistoriaPostulante = new javax.swing.JTable();
+        butSalirHistorialPostulante = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -285,6 +286,14 @@ public class ventanaHistoriaPostulante extends javax.swing.JFrame implements Obs
         ));
         jScrollPane4.setViewportView(tablaEntrevistasHistoriaPostulante);
 
+        butSalirHistorialPostulante.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        butSalirHistorialPostulante.setText("Salir");
+        butSalirHistorialPostulante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butSalirHistorialPostulanteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -294,13 +303,20 @@ public class ventanaHistoriaPostulante extends javax.swing.JFrame implements Obs
                     .addComponent(jScrollPane4)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(butSalirHistorialPostulante, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(butSalirHistorialPostulante)
+                .addContainerGap())
         );
 
         setBounds(0, 0, 877, 1021);
@@ -326,10 +342,15 @@ public class ventanaHistoriaPostulante extends javax.swing.JFrame implements Obs
         cargoTabla(false);
     }//GEN-LAST:event_butResetHistoriaPostulanteActionPerformed
 
+    private void butSalirHistorialPostulanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butSalirHistorialPostulanteActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_butSalirHistorialPostulanteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butBuscarHistoriaPostulante;
     private javax.swing.JButton butResetHistoriaPostulante;
+    private javax.swing.JButton butSalirHistorialPostulante;
     private javax.swing.JLabel etiqAModificarCedulaHistoriaPostulante;
     private javax.swing.JLabel etiqAModificarDireccionHistoriaPostulante;
     private javax.swing.JLabel etiqAModificarFormatoHistoriaPostulante;

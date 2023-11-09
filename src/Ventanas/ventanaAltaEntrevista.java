@@ -87,6 +87,11 @@ public class ventanaAltaEntrevista extends javax.swing.JFrame implements Observe
 
         butCancelarAltaEntrevista.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         butCancelarAltaEntrevista.setText("Cancelar");
+        butCancelarAltaEntrevista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butCancelarAltaEntrevistaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -181,6 +186,7 @@ public class ventanaAltaEntrevista extends javax.swing.JFrame implements Observe
     private void butAplicarAltaEntrevistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAplicarAltaEntrevistaActionPerformed
         try{
         String comentariosEntrevista = txtComentariosAltaEntevista.getText();
+        if (comentariosEntrevista.length()!=0){
         int puntajeEntrevista = parseInt(txtPuntajeAltaEntevista.getText());
         Entrevistador entrevistadorSelec = (Entrevistador) listEntrevistadoresAltaEntevista.getSelectedValue();
         Postulante postulanteSelec = (Postulante) listPostulantesAltaEntevista.getSelectedValue();
@@ -189,10 +195,17 @@ public class ventanaAltaEntrevista extends javax.swing.JFrame implements Observe
         modelo.agregarEntrevista(entrevistaCreada);
         JOptionPane.showMessageDialog(null,"Entrevista agregada","Info", 1);
         limpiarCampos();
+        }else{
+            JOptionPane.showMessageDialog(null,"Relleno todos los campos por favor","Error", 0);
+        }
         }catch(NumberFormatException a){
             JOptionPane.showMessageDialog(null,"El campo Puntaje Entrevista debe ser numero ","Error", 0);
         }
     }//GEN-LAST:event_butAplicarAltaEntrevistaActionPerformed
+
+    private void butCancelarAltaEntrevistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butCancelarAltaEntrevistaActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_butCancelarAltaEntrevistaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

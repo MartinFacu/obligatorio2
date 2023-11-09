@@ -64,6 +64,11 @@ public class ventanaRegistroTema extends javax.swing.JFrame {
 
         butCancelarRegTematica.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         butCancelarRegTematica.setText("Cancelar");
+        butCancelarRegTematica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butCancelarRegTematicaActionPerformed(evt);
+            }
+        });
         jPanel1.add(butCancelarRegTematica);
         butCancelarRegTematica.setBounds(50, 290, 120, 40);
 
@@ -91,6 +96,10 @@ public class ventanaRegistroTema extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null,"Entrevista agregada","Info", 1);
         limpiarCampos();
     }//GEN-LAST:event_butRegistrarRegTematicaActionPerformed
+
+    private void butCancelarRegTematicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butCancelarRegTematicaActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_butCancelarRegTematicaActionPerformed
 
     /**
      * @param args the command line arguments

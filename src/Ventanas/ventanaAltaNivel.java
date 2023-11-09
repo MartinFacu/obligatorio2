@@ -188,7 +188,7 @@ public class ventanaAltaNivel extends javax.swing.JFrame implements Observer {
     }// </editor-fold>//GEN-END:initComponents
 
     private void butCancelarAltaNivelesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butCancelarAltaNivelesActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_butCancelarAltaNivelesActionPerformed
 
     private void butRegistrarAltaNivelesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butRegistrarAltaNivelesActionPerformed
