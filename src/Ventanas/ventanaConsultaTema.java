@@ -1,11 +1,11 @@
-
 package Ventanas;
 
 import java.util.Observable;
 import java.util.Observer;
 import zFuncionamiento.*;
 
-public class ventanaConsultaTema extends javax.swing.JFrame implements Observer{
+public class ventanaConsultaTema extends javax.swing.JFrame implements Observer {
+
     public ventanaConsultaTema(Sistema unSistema) {
         initComponents();
         modelo = unSistema;
@@ -13,6 +13,7 @@ public class ventanaConsultaTema extends javax.swing.JFrame implements Observer{
         limpiarCampos();
         modelo.addObserver(this);
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -146,8 +147,8 @@ public class ventanaConsultaTema extends javax.swing.JFrame implements Observer{
         Tematica temaSeleccionado = (Tematica) listTematicasConsultaPorTematica.getSelectedValue();
         int cantidadDePersonasQueSaben = modelo.cantidadDePersonasQueSabenDelTema(temaSeleccionado);
         int cantidadPuestosQueNecesitan = modelo.cantidadDePuestosQueNecesitan(temaSeleccionado);
-        etiqAModificarCantQueSabenConsultaPorTematica.setText(cantidadDePersonasQueSaben+"");
-        etiqAModificarPuestosQueNecesitanConsultaPorTematica.setText(cantidadPuestosQueNecesitan+"");
+        etiqAModificarCantQueSabenConsultaPorTematica.setText(cantidadDePersonasQueSaben + "");
+        etiqAModificarPuestosQueNecesitanConsultaPorTematica.setText(cantidadPuestosQueNecesitan + "");
     }//GEN-LAST:event_listTematicasConsultaPorTematicaValueChanged
 
     private void butSalirConsultaTematicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butSalirConsultaTematicaActionPerformed
@@ -167,8 +168,8 @@ public class ventanaConsultaTema extends javax.swing.JFrame implements Observer{
     private javax.swing.JList listTematicasConsultaPorTematica;
     // End of variables declaration//GEN-END:variables
     private Sistema modelo;
-    
-    private void limpiarCampos(){
+
+    private void limpiarCampos() {
         etiqAModificarCantQueSabenConsultaPorTematica.setText("");
         etiqAModificarPuestosQueNecesitanConsultaPorTematica.setText("");
     }
@@ -178,9 +179,9 @@ public class ventanaConsultaTema extends javax.swing.JFrame implements Observer{
         limpiarCampos();
         cargarLista();
     }
-    
-    private void cargarLista(){
+
+    private void cargarLista() {
         listTematicasConsultaPorTematica.setListData(modelo.getTematicas().toArray());
     }
-    
+
 }

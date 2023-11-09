@@ -1,4 +1,3 @@
-
 package Ventanas;
 
 import java.util.ArrayList;
@@ -323,15 +322,15 @@ public class ventanaHistoriaPostulante extends javax.swing.JFrame implements Obs
     }// </editor-fold>//GEN-END:initComponents
 
     private void listPostulantesHistoriaPostulanteValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listPostulantesHistoriaPostulanteValueChanged
-        try{
+        try {
             Postulante postulanteSeleccionado = (Postulante) listPostulantesHistoriaPostulante.getSelectedValue();
             cargarDatosPostulante(postulanteSeleccionado);
-        //remplazo el texto de las etiquetas AModificar con la info del postulante seleccionado
-        }catch(NullPointerException e){
+            //remplazo el texto de las etiquetas AModificar con la info del postulante seleccionado
+        } catch (NullPointerException e) {
         }
-        
+
         //
-        
+
     }//GEN-LAST:event_listPostulantesHistoriaPostulanteValueChanged
 
     private void butBuscarHistoriaPostulanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butBuscarHistoriaPostulanteActionPerformed
@@ -389,17 +388,17 @@ public class ventanaHistoriaPostulante extends javax.swing.JFrame implements Obs
         listPostulantesHistoriaPostulante.setListData(modelo.getPostulantes().toArray());
         //Si el postulante sigue existiendo cargo todo de nuevo por si cambiaron las entrevistas, sino 
         // muestro todo en blanco
-            if(modelo.getPostulantes().contains(this.post)){
-                System.out.println("Si esta en la lista");
-                cargarDatosPostulante(this.post);
-            }else{
-                System.out.println("no esta en la lista");
-                cargoTodoVacio();
-            }
-            cargoTabla(true);
+        if (modelo.getPostulantes().contains(this.post)) {
+            System.out.println("Si esta en la lista");
+            cargarDatosPostulante(this.post);
+        } else {
+            System.out.println("no esta en la lista");
+            cargoTodoVacio();
+        }
+        cargoTabla(true);
     }
-    
-    public void cargoTodoVacio(){
+
+    public void cargoTodoVacio() {
         listPostulantesHistoriaPostulante.setListData(modelo.getPostulantes().toArray());
         listExperienciasHistoriaPostulante.setListData(modelo.darDatosDelHash().toArray());
         etiqAModificarNombreHistoriaPostulante.setText("");
@@ -409,35 +408,37 @@ public class ventanaHistoriaPostulante extends javax.swing.JFrame implements Obs
         etiqAModificarMailHistoriaPostulante.setText("");
         etiqAModificarLinkedinHistoriaPostulante.setText("");
         etiqAModificarFormatoHistoriaPostulante.setText("");
-        
+
     }
-    public void cargarDatosPostulante(Postulante unPostulante){
-            etiqAModificarNombreHistoriaPostulante.setText(unPostulante.getNombre());
-            etiqAModificarCedulaHistoriaPostulante.setText(unPostulante.getCedula()+"");
-            etiqAModificarDireccionHistoriaPostulante.setText(unPostulante.getDireccion());
-            etiqAModificarTelefonoHistoriaPostulante.setText(unPostulante.getNumCel()+"");
-            etiqAModificarMailHistoriaPostulante.setText(unPostulante.getMail());
-            etiqAModificarLinkedinHistoriaPostulante.setText(unPostulante.getLinkedin());
-            etiqAModificarFormatoHistoriaPostulante.setText(unPostulante.getFormato());
-            listExperienciasHistoriaPostulante.setListData(unPostulante.darDatosDelHash().toArray());
-            this.post = unPostulante;
+
+    public void cargarDatosPostulante(Postulante unPostulante) {
+        etiqAModificarNombreHistoriaPostulante.setText(unPostulante.getNombre());
+        etiqAModificarCedulaHistoriaPostulante.setText(unPostulante.getCedula() + "");
+        etiqAModificarDireccionHistoriaPostulante.setText(unPostulante.getDireccion());
+        etiqAModificarTelefonoHistoriaPostulante.setText(unPostulante.getNumCel() + "");
+        etiqAModificarMailHistoriaPostulante.setText(unPostulante.getMail());
+        etiqAModificarLinkedinHistoriaPostulante.setText(unPostulante.getLinkedin());
+        etiqAModificarFormatoHistoriaPostulante.setText(unPostulante.getFormato());
+        listExperienciasHistoriaPostulante.setListData(unPostulante.darDatosDelHash().toArray());
+        this.post = unPostulante;
     }
-    public void cargoTabla(Boolean queHacer){
+
+    public void cargoTabla(Boolean queHacer) {
         DefaultTableModel model = (DefaultTableModel) tablaEntrevistasHistoriaPostulante.getModel();
-        if (queHacer){
-        String palabraABuscar=txtBuscarHistoriaPostulante.getText();
-        model.setRowCount(0);
-        ArrayList<Entrevista> entrevistasDelPostulante = modelo.getPostulantesFiltradosPorEntrevistaNumeroCreciente(post); 
-        for (Entrevista entrevis : entrevistasDelPostulante) {
-            String comentariosColor=entrevis.comentarioConColor(palabraABuscar);
-            Object[] fila = {entrevis.getNumeroCorrelativo(), entrevis.getEntrevistador(), entrevis.getPuntaje(), comentariosColor};
-            model.addRow(fila);
-        }
-        }else{
+        if (queHacer) {
+            String palabraABuscar = txtBuscarHistoriaPostulante.getText();
+            model.setRowCount(0);
+            ArrayList<Entrevista> entrevistasDelPostulante = modelo.getPostulantesFiltradosPorEntrevistaNumeroCreciente(post);
+            for (Entrevista entrevis : entrevistasDelPostulante) {
+                String comentariosColor = entrevis.comentarioConColor(palabraABuscar);
+                Object[] fila = {entrevis.getNumeroCorrelativo(), entrevis.getEntrevistador(), entrevis.getPuntaje(), comentariosColor};
+                model.addRow(fila);
+            }
+        } else {
             while (model.getRowCount() > 0) {
                 model.removeRow(0);
             }
         }
-        
+
     }
 }

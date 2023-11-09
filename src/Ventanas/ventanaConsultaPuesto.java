@@ -12,7 +12,7 @@ public class ventanaConsultaPuesto extends javax.swing.JFrame implements Observe
 
     public ventanaConsultaPuesto(Sistema unSistema) {
         initComponents();
-        modelo=unSistema;
+        modelo = unSistema;
         cargarListasSinNada();
         modelo.addObserver(this);
     }
@@ -160,22 +160,21 @@ public class ventanaConsultaPuesto extends javax.swing.JFrame implements Observe
     }// </editor-fold>//GEN-END:initComponents
 
     private void butConsularConsutarPuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butConsularConsutarPuestoActionPerformed
-        puestoSeleccionadoGeneral=(Puesto) listPuestosConsutarPuesto.getSelectedValue();
+        puestoSeleccionadoGeneral = (Puesto) listPuestosConsutarPuesto.getSelectedValue();
         nivelGeneral = (int) spinnNivelConsutarPuesto.getValue();
         cargarListasFiltrados();
     }//GEN-LAST:event_butConsularConsutarPuestoActionPerformed
 
     private void butExportarConsutarPuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butExportarConsutarPuestoActionPerformed
-        
-        
+
         try {
             FileWriter fr = new FileWriter("ConsultaPuesto.txt");
             Formatter arch = new Formatter(fr);
-            arch.format("%s%n",puestoSeleccionadoGeneral+" :");
-            int i=0;
-            for(Postulante pos : postulantesFiltrados){
+            arch.format("%s%n", puestoSeleccionadoGeneral + " :");
+            int i = 0;
+            for (Postulante pos : postulantesFiltrados) {
                 i++;
-                arch.format("%s%n",i+") "+pos);
+                arch.format("%s%n", i + ") " + pos);
             }
             arch.close();
         } catch (IOException ex) {
@@ -207,47 +206,45 @@ public class ventanaConsultaPuesto extends javax.swing.JFrame implements Observe
     private ArrayList<Postulante> postulantesFiltrados;
     private Puesto puestoSeleccionadoGeneral;
     private int nivelGeneral;
-    
-    
-    public void cargarListasSinNada(){
+
+    public void cargarListasSinNada() {
         listPuestosConsutarPuesto.setListData(modelo.getPuestos().toArray());
         listPostulantesConsutarPuesto.setListData(modelo.getPostulantes().toArray());
     }
-    public void cargarListasFiltrados(){
+
+    public void cargarListasFiltrados() {
         String formatoDelPuesto = puestoSeleccionadoGeneral.getTipo();
-        ArrayList<Tematica> temasDelPuesto=puestoSeleccionadoGeneral.getTemas();
-        ArrayList<Postulante> listaFiltroNivel= modelo.getPostulantesFiltradosPorNivel(temasDelPuesto, nivelGeneral);
+        ArrayList<Tematica> temasDelPuesto = puestoSeleccionadoGeneral.getTemas();
+        ArrayList<Postulante> listaFiltroNivel = modelo.getPostulantesFiltradosPorNivel(temasDelPuesto, nivelGeneral);
         System.out.println("Luego de ser filtrados por el nivel y tematica : ");
-        listasMuestra (listaFiltroNivel);
-        ArrayList<Postulante> listaFiltroFormato=modelo.getPostulantesFiltradosPorFormato(listaFiltroNivel, formatoDelPuesto);
+        listasMuestra(listaFiltroNivel);
+        ArrayList<Postulante> listaFiltroFormato = modelo.getPostulantesFiltradosPorFormato(listaFiltroNivel, formatoDelPuesto);
         System.out.println("Luego de ser filtrados por formato : ");
-        listasMuestra (listaFiltroFormato);
-        ArrayList<Postulante> listaFiltroEntrevista=modelo.getPostulantesFiltradosPorEntrevista(listaFiltroFormato);
+        listasMuestra(listaFiltroFormato);
+        ArrayList<Postulante> listaFiltroEntrevista = modelo.getPostulantesFiltradosPorEntrevista(listaFiltroFormato);
         System.out.println("Luego de ser filtrados por entrevistas : ");
-        listasMuestra (listaFiltroEntrevista);
-        ArrayList<Postulante> listaFiltroFinal=modelo.getPostulantesFiltradosPorEntrevistaPuntaje(listaFiltroEntrevista);
+        listasMuestra(listaFiltroEntrevista);
+        ArrayList<Postulante> listaFiltroFinal = modelo.getPostulantesFiltradosPorEntrevistaPuntaje(listaFiltroEntrevista);
         System.out.println("Luego de ser filtrados por puntaje en entrevistas : ");
-        listasMuestra (listaFiltroFinal);
+        listasMuestra(listaFiltroFinal);
         listPostulantesConsutarPuesto.setListData(listaFiltroFinal.toArray());
         postulantesFiltrados = listaFiltroFinal;
         listPuestosConsutarPuesto.setListData(modelo.getPuestos().toArray());
     }
-    
-    public void listasMuestra (ArrayList<Postulante> lista){
-        for(Postulante pos : lista){
+
+    public void listasMuestra(ArrayList<Postulante> lista) {
+        for (Postulante pos : lista) {
             System.out.println(pos);
         }
     }
 
     @Override
     public void update(Observable o, Object arg) {
-       // vuelvo a filtrar la lista general manteniendo los filtros
+        // vuelvo a filtrar la lista general manteniendo los filtros
         cargarListasFiltrados();
-       // cargo la lista de puestos
-       listPuestosConsutarPuesto.setListData(modelo.getPuestos().toArray());
-       
+        // cargo la lista de puestos
+        listPuestosConsutarPuesto.setListData(modelo.getPuestos().toArray());
+
     }
-    
-    
-    
+
 }

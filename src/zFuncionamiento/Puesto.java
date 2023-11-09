@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Observable;
 
-public class Puesto extends Observable implements Serializable{
+public class Puesto extends Observable implements Serializable {
+
     private String nombre;
     private String tipo;
     private ArrayList<Tematica> temas;
@@ -43,6 +44,5 @@ public class Puesto extends Observable implements Serializable{
     public String toString() {
         return "Puesto{" + "nombre=" + nombre + ", tipo=" + tipo + ", temas=" + temas + '}';
     }
-    
-    
+
 }

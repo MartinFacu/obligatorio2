@@ -5,7 +5,6 @@ import java.util.Observable;
 import javax.swing.JOptionPane;
 import zFuncionamiento.*;
 
-
 public class AltaEntrevistador extends javax.swing.JFrame {
 
     public AltaEntrevistador(Sistema unSistema) {
@@ -130,22 +129,22 @@ public class AltaEntrevistador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void butAplicarAltaEntrevistadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAplicarAltaEntrevistadorActionPerformed
-        try{
-        int ced=parseInt(txtCedulaAltaEntrevistador.getText());
-        if(modelo.verificacionCedulaEntrevistadores(ced)){
-        String direc = txtDireccionAltaEntrevistador.getText();
-        int ingreso = parseInt(txtIngresoAltaEntrevistador.getText());
-        String nombre = txtNombreAltaEntrevistador.getText();
-        Entrevistador entrevistador = new Entrevistador(nombre, ced, direc, ingreso);
-        modelo.agregarEntrevistador(entrevistador);
-        JOptionPane.showMessageDialog(null,"Entrevistador agregado","Info", 1);
-        limpiarCampos();
-        }else{
-            JOptionPane.showMessageDialog(null,"cedula ya registrada ","Error", 0);
-        }
-        
-        }catch(NumberFormatException a){
-            JOptionPane.showMessageDialog(null,"los campos ingreso y cedula deben ser numeros ","Error", 0);
+        try {
+            int ced = parseInt(txtCedulaAltaEntrevistador.getText());
+            if (modelo.verificacionCedulaEntrevistadores(ced)) {
+                String direc = txtDireccionAltaEntrevistador.getText();
+                int ingreso = parseInt(txtIngresoAltaEntrevistador.getText());
+                String nombre = txtNombreAltaEntrevistador.getText();
+                Entrevistador entrevistador = new Entrevistador(nombre, ced, direc, ingreso);
+                modelo.agregarEntrevistador(entrevistador);
+                JOptionPane.showMessageDialog(null, "Entrevistador agregado", "Info", 1);
+                limpiarCampos();
+            } else {
+                JOptionPane.showMessageDialog(null, "cedula ya registrada ", "Error", 0);
+            }
+
+        } catch (NumberFormatException a) {
+            JOptionPane.showMessageDialog(null, "los campos ingreso y cedula deben ser numeros ", "Error", 0);
         }
     }//GEN-LAST:event_butAplicarAltaEntrevistadorActionPerformed
 
@@ -164,7 +163,8 @@ public class AltaEntrevistador extends javax.swing.JFrame {
     private javax.swing.JTextField txtNombreAltaEntrevistador;
     // End of variables declaration//GEN-END:variables
     private Sistema modelo;
-    private void limpiarCampos() {                                                        
+
+    private void limpiarCampos() {
         txtCedulaAltaEntrevistador.setText("");
         txtDireccionAltaEntrevistador.setText("");
         txtIngresoAltaEntrevistador.setText("");

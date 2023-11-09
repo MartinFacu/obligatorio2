@@ -1,5 +1,5 @@
-
 package Ventanas;
+
 import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
@@ -195,18 +195,18 @@ public class ventanaAltaNivel extends javax.swing.JFrame implements Observer {
         HashMap<Tematica, Integer> hashParaPostulante = modelo.clonarHash();
         Postulante postulante = new Postulante(this.formato, this.linkedin, this.mail, this.numCel, this.direccion, this.cedula, this.nombre, hashParaPostulante);
         System.out.println(modelo.getHashMapTematicasConNivel());
-        System.out.println("Postulante: "+postulante);
+        System.out.println("Postulante: " + postulante);
         modelo.agregarPostulante(postulante);
         modelo.limpiarHashMap();
         listTematicasAltaNiveles.setListData(modelo.darDatosDelHash().toArray());
         System.out.println(postulante);
-        JOptionPane.showMessageDialog(null,"Postulante agregado","Info", 1);
+        JOptionPane.showMessageDialog(null, "Postulante agregado", "Info", 1);
         this.dispose();
     }//GEN-LAST:event_butRegistrarAltaNivelesActionPerformed
 
     private void butAgregarTematicaAltaNivelesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAgregarTematicaAltaNivelesActionPerformed
         //agarro los datos seleccionados y los agrego al hashMap
-        Tematica tematicaSeleccionada= (Tematica) combTemaElegidoAltaNiveles.getSelectedItem();
+        Tematica tematicaSeleccionada = (Tematica) combTemaElegidoAltaNiveles.getSelectedItem();
         Integer nivelSeleccionado = (Integer) spinNivelElegidoAltaNiveles.getValue();
         modelo.agregarAlHashMap(tematicaSeleccionada, nivelSeleccionado);
         //cargo la lista con los elementos del hashmap
@@ -218,15 +218,13 @@ public class ventanaAltaNivel extends javax.swing.JFrame implements Observer {
     }//GEN-LAST:event_combTemaElegidoAltaNivelesActionPerformed
 
     private void butEliminarTematicaAltaNivelesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butEliminarTematicaAltaNivelesActionPerformed
-        String tematicaSeleccionada= (String) listTematicasAltaNiveles.getSelectedValue();
-        System.out.println("tem selec : "+tematicaSeleccionada);
+        String tematicaSeleccionada = (String) listTematicasAltaNiveles.getSelectedValue();
+        System.out.println("tem selec : " + tematicaSeleccionada);
         modelo.eliminarUnDatoDelHash(tematicaSeleccionada);
         listTematicasAltaNiveles.setListData(modelo.darDatosDelHash().toArray());
-        
+
     }//GEN-LAST:event_butEliminarTematicaAltaNivelesActionPerformed
 
-
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butAgregarTematicaAltaNiveles;
@@ -257,8 +255,8 @@ public class ventanaAltaNivel extends javax.swing.JFrame implements Observer {
     public void update(Observable o, Object arg) {
         cargarDatos();
     }
-    
-    public void cargarDatos(){
+
+    public void cargarDatos() {
         //cargo datos lista
         listTematicasAltaNiveles.setListData(modelo.darDatosDelHash().toArray());
         //cargo datos combo

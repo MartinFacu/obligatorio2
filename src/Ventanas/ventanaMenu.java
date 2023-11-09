@@ -1,11 +1,8 @@
-
 package Ventanas;
-import java.io.File;
+
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.Observer;
 import zFuncionamiento.*;
+
 public class ventanaMenu extends javax.swing.JFrame {
 
     public ventanaMenu(Sistema unSistema) {
@@ -129,49 +126,49 @@ public class ventanaMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void opcionRegistroTemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionRegistroTemaActionPerformed
-        ventanaRegistroTema ventRegistroTema = new ventanaRegistroTema(modelo); 
+        ventanaRegistroTema ventRegistroTema = new ventanaRegistroTema(modelo);
         ventRegistroTema.setVisible(true);
     }//GEN-LAST:event_opcionRegistroTemaActionPerformed
 
     private void opcionRegistroEvaluadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionRegistroEvaluadorActionPerformed
-        AltaEntrevistador ventanaAltaEntrevistador = new AltaEntrevistador(modelo); 
+        AltaEntrevistador ventanaAltaEntrevistador = new AltaEntrevistador(modelo);
         ventanaAltaEntrevistador.setVisible(true);
     }//GEN-LAST:event_opcionRegistroEvaluadorActionPerformed
 
     private void opcionBajaPostulanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionBajaPostulanteActionPerformed
-        ventanaBajaPostulante ventanaBajaPostulante = new ventanaBajaPostulante(modelo); 
+        ventanaBajaPostulante ventanaBajaPostulante = new ventanaBajaPostulante(modelo);
         ventanaBajaPostulante.setVisible(true);
     }//GEN-LAST:event_opcionBajaPostulanteActionPerformed
 
     private void opcionHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionHistorialActionPerformed
-        ventanaHistoriaPostulante ventanaHisPostulante = new ventanaHistoriaPostulante(modelo); 
+        ventanaHistoriaPostulante ventanaHisPostulante = new ventanaHistoriaPostulante(modelo);
         ventanaHisPostulante.setVisible(true);
     }//GEN-LAST:event_opcionHistorialActionPerformed
 
     private void opcionAltaPostulanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionAltaPostulanteActionPerformed
-        ventanaAltaPostulante ventPostulante = new ventanaAltaPostulante(modelo); 
+        ventanaAltaPostulante ventPostulante = new ventanaAltaPostulante(modelo);
         ventPostulante.setVisible(true);
     }//GEN-LAST:event_opcionAltaPostulanteActionPerformed
 
     private void opcionIngresoEntrevistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionIngresoEntrevistaActionPerformed
-        ventanaAltaEntrevista ventanaAltaEntrevista = new ventanaAltaEntrevista(modelo); 
+        ventanaAltaEntrevista ventanaAltaEntrevista = new ventanaAltaEntrevista(modelo);
         ventanaAltaEntrevista.setVisible(true);
     }//GEN-LAST:event_opcionIngresoEntrevistaActionPerformed
 
     private void opcionConsultoPuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionConsultoPuestoActionPerformed
-        ventanaConsultaPuesto ventanaConsultaPuestoo = new ventanaConsultaPuesto(modelo); 
+        ventanaConsultaPuesto ventanaConsultaPuestoo = new ventanaConsultaPuesto(modelo);
         ventanaConsultaPuestoo.setVisible(true);
     }//GEN-LAST:event_opcionConsultoPuestoActionPerformed
 
     private void opcionRegistroPuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionRegistroPuestoActionPerformed
-        ventanaRegistroPuesto ventanaRegistroPuestoo = new ventanaRegistroPuesto(modelo); 
+        ventanaRegistroPuesto ventanaRegistroPuestoo = new ventanaRegistroPuesto(modelo);
         ventanaRegistroPuestoo.setVisible(true);
     }//GEN-LAST:event_opcionRegistroPuestoActionPerformed
 
     private void opcionConsultaTemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionConsultaTemaActionPerformed
-        ventanaConsultaTema ventanaConsultaTemaa = new ventanaConsultaTema(modelo); 
+        ventanaConsultaTema ventanaConsultaTemaa = new ventanaConsultaTema(modelo);
         ventanaConsultaTemaa.setVisible(true);
-        
+
     }//GEN-LAST:event_opcionConsultaTemaActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
@@ -182,7 +179,7 @@ public class ventanaMenu extends javax.swing.JFrame {
             s.writeObject(modelo);
             s.close();
         } catch (IOException e) {
-            System.out.println("Error de archivo "+e.getMessage());
+            System.out.println("Error de archivo " + e.getMessage());
             System.exit(1);
         }
     }//GEN-LAST:event_formWindowClosed
@@ -201,6 +198,6 @@ public class ventanaMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem opcionRegistroPuesto;
     private javax.swing.JMenuItem opcionRegistroTema;
     // End of variables declaration//GEN-END:variables
-    
+
     private Sistema modelo;
 }

@@ -1,4 +1,3 @@
-
 package Ventanas;
 
 import static java.lang.Integer.parseInt;
@@ -6,13 +5,16 @@ import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JOptionPane;
 import zFuncionamiento.*;
+
 public class ventanaAltaEntrevista extends javax.swing.JFrame implements Observer {
+
     public ventanaAltaEntrevista(Sistema unSistema) {
         initComponents();
-        modelo=unSistema;
+        modelo = unSistema;
         cargarListas();
         modelo.addObserver(this);
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -180,26 +182,26 @@ public class ventanaAltaEntrevista extends javax.swing.JFrame implements Observe
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtPuntajeAltaEntevistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPuntajeAltaEntevistaActionPerformed
-     
+
     }//GEN-LAST:event_txtPuntajeAltaEntevistaActionPerformed
 
     private void butAplicarAltaEntrevistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAplicarAltaEntrevistaActionPerformed
-        try{
-        String comentariosEntrevista = txtComentariosAltaEntevista.getText();
-        if (comentariosEntrevista.length()!=0){
-        int puntajeEntrevista = parseInt(txtPuntajeAltaEntevista.getText());
-        Entrevistador entrevistadorSelec = (Entrevistador) listEntrevistadoresAltaEntevista.getSelectedValue();
-        Postulante postulanteSelec = (Postulante) listPostulantesAltaEntevista.getSelectedValue();
-        int numeroCorrelativo = modelo.getEntrevistas().size()+1;
-        Entrevista entrevistaCreada = new Entrevista(entrevistadorSelec, postulanteSelec, puntajeEntrevista, comentariosEntrevista, numeroCorrelativo);
-        modelo.agregarEntrevista(entrevistaCreada);
-        JOptionPane.showMessageDialog(null,"Entrevista agregada","Info", 1);
-        limpiarCampos();
-        }else{
-            JOptionPane.showMessageDialog(null,"Relleno todos los campos por favor","Error", 0);
-        }
-        }catch(NumberFormatException a){
-            JOptionPane.showMessageDialog(null,"El campo Puntaje Entrevista debe ser numero ","Error", 0);
+        try {
+            String comentariosEntrevista = txtComentariosAltaEntevista.getText();
+            if (comentariosEntrevista.length() != 0) {
+                int puntajeEntrevista = parseInt(txtPuntajeAltaEntevista.getText());
+                Entrevistador entrevistadorSelec = (Entrevistador) listEntrevistadoresAltaEntevista.getSelectedValue();
+                Postulante postulanteSelec = (Postulante) listPostulantesAltaEntevista.getSelectedValue();
+                int numeroCorrelativo = modelo.getEntrevistas().size() + 1;
+                Entrevista entrevistaCreada = new Entrevista(entrevistadorSelec, postulanteSelec, puntajeEntrevista, comentariosEntrevista, numeroCorrelativo);
+                modelo.agregarEntrevista(entrevistaCreada);
+                JOptionPane.showMessageDialog(null, "Entrevista agregada", "Info", 1);
+                limpiarCampos();
+            } else {
+                JOptionPane.showMessageDialog(null, "Relleno todos los campos por favor", "Error", 0);
+            }
+        } catch (NumberFormatException a) {
+            JOptionPane.showMessageDialog(null, "El campo Puntaje Entrevista debe ser numero ", "Error", 0);
         }
     }//GEN-LAST:event_butAplicarAltaEntrevistaActionPerformed
 
@@ -226,7 +228,8 @@ public class ventanaAltaEntrevista extends javax.swing.JFrame implements Observe
     private javax.swing.JTextField txtPuntajeAltaEntevista;
     // End of variables declaration//GEN-END:variables
     private Sistema modelo;
-    private void limpiarCampos() {                                                        
+
+    private void limpiarCampos() {
         txtComentariosAltaEntevista.setText("");
         txtPuntajeAltaEntevista.setText("");
     }
@@ -235,8 +238,8 @@ public class ventanaAltaEntrevista extends javax.swing.JFrame implements Observe
     public void update(Observable o, Object arg) {
         cargarListas();
     }
-    
-    public void cargarListas(){
+
+    public void cargarListas() {
         listEntrevistadoresAltaEntevista.setListData(modelo.getEntrevistadores().toArray());
         listPostulantesAltaEntevista.setListData(modelo.getPostulantes().toArray());
     }

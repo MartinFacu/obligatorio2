@@ -1,16 +1,14 @@
 package zFuncionamiento;
 
-import Ventanas.*;
-import Main.*;
 import java.io.Serializable;
 import java.util.Observable;
 
-public class Entrevistador extends Observable implements Serializable{
+public class Entrevistador extends Observable implements Serializable {
+
     private String nombre;
     private int cedula;
     private String direccion;
     private int ingresoALaEmpresa;
-    
 
     public Entrevistador(String nombre, int cedula, String direccion, int ingresoALaEmpresa) {
         this.nombre = nombre;
@@ -18,9 +16,7 @@ public class Entrevistador extends Observable implements Serializable{
         this.direccion = direccion;
         this.ingresoALaEmpresa = ingresoALaEmpresa;
     }
-    
-    
-    
+
     // Getter y Setter para el campo 'nombre'
     public String getNombre() {
         return nombre;
@@ -61,6 +57,5 @@ public class Entrevistador extends Observable implements Serializable{
     public String toString() {
         return "Entrevistador{" + "nombre=" + nombre + ", cedula=" + cedula + '}';
     }
-    
-    
+
 }

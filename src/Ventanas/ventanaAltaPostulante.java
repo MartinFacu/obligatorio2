@@ -1,18 +1,14 @@
 package Ventanas;
-import java.util.HashMap;
-import java.util.Observable;
-import javax.swing.ButtonModel;
-import javax.swing.JOptionPane;
-import javax.swing.JRadioButton;
-import zFuncionamiento.*;
-public class ventanaAltaPostulante extends javax.swing.JFrame {
 
+import javax.swing.JOptionPane;
+import zFuncionamiento.*;
+
+public class ventanaAltaPostulante extends javax.swing.JFrame {
 
     public ventanaAltaPostulante(Sistema unSistema) {
         initComponents();
         modelo = unSistema;
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -251,39 +247,37 @@ public class ventanaAltaPostulante extends javax.swing.JFrame {
     }//GEN-LAST:event_butCancelarAltaPostulanteActionPerformed
 
     private void butSiguienteAltaPostulanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butSiguienteAltaPostulanteActionPerformed
-        
-        try{
-        int unaCed = Integer.parseInt(txtCedulaAltaPostulante.getText());
-        int unNumCel = Integer.parseInt(txtTelefonoAltaPostulante.getText());
-        if(modelo.verificacionCedulaPostulantes(unaCed)){
-        String unLinkedin = txtLinkedinAltaPostulante.getText();
-        String unMail = txtMailAltaPostulante.getText();
-        String unaDirec = txtDireccionAltaPostulante.getText();
-        String unNombre = txtNombreAltaPostulante.getText();
-        String formato ="";
-        if (radbutMixtoAltaPostulante.isSelected()){
-            formato = "Mixto";
-        }else{
-            if(radbutPresencialAltaPostulante.isSelected()){
-                formato = "Presencial";
-            }else{
-                formato = "Remoto";
+
+        try {
+            int unaCed = Integer.parseInt(txtCedulaAltaPostulante.getText());
+            int unNumCel = Integer.parseInt(txtTelefonoAltaPostulante.getText());
+            if (modelo.verificacionCedulaPostulantes(unaCed)) {
+                String unLinkedin = txtLinkedinAltaPostulante.getText();
+                String unMail = txtMailAltaPostulante.getText();
+                String unaDirec = txtDireccionAltaPostulante.getText();
+                String unNombre = txtNombreAltaPostulante.getText();
+                String formato = "";
+                if (radbutMixtoAltaPostulante.isSelected()) {
+                    formato = "Mixto";
+                } else {
+                    if (radbutPresencialAltaPostulante.isSelected()) {
+                        formato = "Presencial";
+                    } else {
+                        formato = "Remoto";
+                    }
+                }
+                limpiarCampos();
+                ventanaAltaNivel ventanaAltaNivel = new ventanaAltaNivel(modelo, unLinkedin, unMail, unNumCel, unaDirec, unaCed, unNombre, formato);
+                ventanaAltaNivel.setVisible(true);
+
+            } else {
+                JOptionPane.showMessageDialog(null, "cedula ya registrada ", "Error", 0);
             }
+        } catch (NumberFormatException a) {
+            JOptionPane.showMessageDialog(null, "los campos telefono y cedula deben ser numeros ", "Error", 0);
         }
-        limpiarCampos();
-        ventanaAltaNivel ventanaAltaNivel = new ventanaAltaNivel(modelo, unLinkedin, unMail, unNumCel, unaDirec, unaCed, unNombre, formato);
-        ventanaAltaNivel.setVisible(true);
-        
-        }else{
-            JOptionPane.showMessageDialog(null,"cedula ya registrada ","Error", 0);
-        }
-        }catch(NumberFormatException a){
-            JOptionPane.showMessageDialog(null,"los campos telefono y cedula deben ser numeros ","Error", 0);
-        }
-        
+
     }//GEN-LAST:event_butSiguienteAltaPostulanteActionPerformed
-
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -310,13 +304,14 @@ public class ventanaAltaPostulante extends javax.swing.JFrame {
     private javax.swing.JTextField txtTelefonoAltaPostulante;
     // End of variables declaration//GEN-END:variables
     private Sistema modelo;
-    private void limpiarCampos() {                                                        
+
+    private void limpiarCampos() {
         txtCedulaAltaPostulante.setText("");
         txtDireccionAltaPostulante.setText("");
         txtLinkedinAltaPostulante.setText("");
         txtMailAltaPostulante.setText("");
         txtNombreAltaPostulante.setText("");
         txtTelefonoAltaPostulante.setText("");
-        
+
     }
 }

@@ -1,4 +1,3 @@
-
 package Ventanas;
 
 import java.util.Observable;
@@ -6,14 +5,15 @@ import java.util.Observer;
 import javax.swing.JOptionPane;
 import zFuncionamiento.*;
 
-
 public class ventanaBajaPostulante extends javax.swing.JFrame implements Observer {
+
     public ventanaBajaPostulante(Sistema unSistema) {
         initComponents();
-        this.modelo=unSistema;
+        this.modelo = unSistema;
         cargarLista();
         modelo.addObserver(this);
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -115,14 +115,13 @@ public class ventanaBajaPostulante extends javax.swing.JFrame implements Observe
     private void butAplicarBajaPostulanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAplicarBajaPostulanteActionPerformed
         Postulante postulanteSeleccionado = (Postulante) listPostulantesBajaPostulante.getSelectedValue();
         modelo.eliminarUnPostulante(postulanteSeleccionado);
-        JOptionPane.showMessageDialog(null,"Postulante eliminado","Info", 1);
+        JOptionPane.showMessageDialog(null, "Postulante eliminado", "Info", 1);
         listPostulantesBajaPostulante.setListData(modelo.getPostulantes().toArray());
     }//GEN-LAST:event_butAplicarBajaPostulanteActionPerformed
 
     /**
      * @param args the command line arguments
      */
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butAplicarBajaPostulante;
@@ -139,8 +138,8 @@ public class ventanaBajaPostulante extends javax.swing.JFrame implements Observe
     public void update(Observable o, Object arg) {
         cargarLista();
     }
-    
-    public void cargarLista(){
+
+    public void cargarLista() {
         listPostulantesBajaPostulante.setListData(modelo.getPostulantes().toArray());
     }
 }

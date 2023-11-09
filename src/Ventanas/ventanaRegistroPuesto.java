@@ -1,4 +1,3 @@
-
 package Ventanas;
 
 import java.util.ArrayList;
@@ -6,17 +5,17 @@ import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JOptionPane;
 import zFuncionamiento.*;
+
 public class ventanaRegistroPuesto extends javax.swing.JFrame implements Observer {
 
     public ventanaRegistroPuesto(Sistema unSistema) {
         initComponents();
-        this.modelo=unSistema;
+        this.modelo = unSistema;
         temasElegidos = new ArrayList<>();
         cargarListas();
         modelo.addObserver(this);
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -238,19 +237,19 @@ public class ventanaRegistroPuesto extends javax.swing.JFrame implements Observe
 
     private void butAplicarRegistroPuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAplicarRegistroPuestoActionPerformed
         String nombre = txtNombreRegistroPuesto.getText();
-        String formato="";
-        if (radbutMixtoRegistroPuesto.isSelected()){
+        String formato = "";
+        if (radbutMixtoRegistroPuesto.isSelected()) {
             formato = "Mixto";
-        }else{
-            if(radbutPresencialRegistroPuesto.isSelected()){
+        } else {
+            if (radbutPresencialRegistroPuesto.isSelected()) {
                 formato = "Presencial";
-            }else{
+            } else {
                 formato = "Remoto";
             }
         }
         Puesto nuevoPuesto = new Puesto(nombre, formato, this.temasElegidos);
         modelo.agregarPuesto(nuevoPuesto);
-        JOptionPane.showMessageDialog(null,"Entrevista agregada","Info", 1);
+        JOptionPane.showMessageDialog(null, "Entrevista agregada", "Info", 1);
         limpiarCampos();
     }//GEN-LAST:event_butAplicarRegistroPuestoActionPerformed
 
@@ -258,7 +257,6 @@ public class ventanaRegistroPuesto extends javax.swing.JFrame implements Observe
         this.dispose();
     }//GEN-LAST:event_butCancelarRegistroPuestoActionPerformed
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butAgregarRegistroPuesto;
@@ -283,13 +281,13 @@ public class ventanaRegistroPuesto extends javax.swing.JFrame implements Observe
     // End of variables declaration//GEN-END:variables
     private Sistema modelo;
     private ArrayList<Tematica> temasElegidos;
-    
-    public void cargarListas(){
+
+    public void cargarListas() {
         listTemasPosiblesRegistroPuesto.setListData(modelo.getTematicas().toArray());
         listTemasElegidosRegistroPuesto.setListData(this.temasElegidos.toArray());
     }
-    
-    private void limpiarCampos() {                                                        
+
+    private void limpiarCampos() {
         txtNombreRegistroPuesto.setText("");
     }
 
@@ -297,5 +295,5 @@ public class ventanaRegistroPuesto extends javax.swing.JFrame implements Observe
     public void update(Observable o, Object arg) {
         cargarListas();
     }
-    
+
 }

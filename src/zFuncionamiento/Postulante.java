@@ -1,9 +1,10 @@
 package zFuncionamiento;
-import Ventanas.*;
-import Main.*;
+
 import java.io.Serializable;
 import java.util.*;
-public class Postulante extends Observable implements Serializable{
+
+public class Postulante extends Observable implements Serializable {
+
     private String nombre;
     private int cedula;
     private String direccion;
@@ -12,8 +13,8 @@ public class Postulante extends Observable implements Serializable{
     private String linkedin;
     private String formato;
     private HashMap<Tematica, Integer> temas;
-    
-    public Postulante(String unFormato, String unLinkedin, String unMail, int unNumCel, String unaDireccion, int unaCedula, String unNombre,HashMap<Tematica, Integer> unosTemas){
+
+    public Postulante(String unFormato, String unLinkedin, String unMail, int unNumCel, String unaDireccion, int unaCedula, String unNombre, HashMap<Tematica, Integer> unosTemas) {
         this.nombre = unNombre;
         this.formato = unFormato;
         this.linkedin = unLinkedin;
@@ -23,9 +24,7 @@ public class Postulante extends Observable implements Serializable{
         this.cedula = unaCedula;
         this.temas = unosTemas;
     }
-    
-    
-    
+
     public String getNombre() {
         return nombre;
     }
@@ -81,8 +80,8 @@ public class Postulante extends Observable implements Serializable{
     public void setFormato(String formato) {
         this.formato = formato;
     }
-    
-    public void addTema(Tematica unTema, int nivel){
+
+    public void addTema(Tematica unTema, int nivel) {
         this.temas.put(unTema, nivel);
     }
 
@@ -95,17 +94,17 @@ public class Postulante extends Observable implements Serializable{
         return "Postulante{" + "nombre=" + nombre + ", cedula=" + cedula + ", direccion=" + direccion + ", formato=" + formato + ", temas=" + temas + '}';
     }
 
-    public ArrayList<String> darDatosDelHash(){
+    public ArrayList<String> darDatosDelHash() {
         System.out.println("entre a : darDatosDelHash Postulante");
         ArrayList<String> lista = new ArrayList<>();
         Iterator<Tematica> it = temas.keySet().iterator();
-        while (it.hasNext()){
-            Tematica tematica = it.next(); 
+        while (it.hasNext()) {
+            Tematica tematica = it.next();
             int nivel = temas.get(tematica);
-            lista.add(tematica+"("+nivel+")");
+            lista.add(tematica + "(" + nivel + ")");
         }
         System.out.println("Sali de : darDatosDelHash");
         return lista;
     }
-    
+
 }
