@@ -48,6 +48,7 @@ public class ventanaHistoriaPostulante extends javax.swing.JFrame implements Obs
         jScrollPane3 = new javax.swing.JScrollPane();
         txtBuscarHistoriaPostulante = new javax.swing.JTextArea();
         butBuscarHistoriaPostulante = new javax.swing.JButton();
+        butResetHistoriaPostulante = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         tablaEntrevistasHistoriaPostulante = new javax.swing.JTable();
 
@@ -138,6 +139,14 @@ public class ventanaHistoriaPostulante extends javax.swing.JFrame implements Obs
             }
         });
 
+        butResetHistoriaPostulante.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        butResetHistoriaPostulante.setText("Reset");
+        butResetHistoriaPostulante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butResetHistoriaPostulanteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -192,7 +201,10 @@ public class ventanaHistoriaPostulante extends javax.swing.JFrame implements Obs
                             .addComponent(etiqAModificarTelefonoHistoriaPostulante)
                             .addComponent(etiqAModificarMailHistoriaPostulante)
                             .addComponent(etiqAModificarLinkedinHistoriaPostulante)
-                            .addComponent(etiqAModificarFormatoHistoriaPostulante))))
+                            .addComponent(etiqAModificarFormatoHistoriaPostulante)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addComponent(butResetHistoriaPostulante, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -254,7 +266,9 @@ public class ventanaHistoriaPostulante extends javax.swing.JFrame implements Obs
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(etiqExperienciaHistoriaPostulante1)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(butBuscarHistoriaPostulante))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(butBuscarHistoriaPostulante)
+                        .addComponent(butResetHistoriaPostulante)))
                 .addGap(15, 15, 15))
         );
 
@@ -305,12 +319,17 @@ public class ventanaHistoriaPostulante extends javax.swing.JFrame implements Obs
     }//GEN-LAST:event_listPostulantesHistoriaPostulanteValueChanged
 
     private void butBuscarHistoriaPostulanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butBuscarHistoriaPostulanteActionPerformed
-        cargoTabla();
+        cargoTabla(true);
     }//GEN-LAST:event_butBuscarHistoriaPostulanteActionPerformed
+
+    private void butResetHistoriaPostulanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butResetHistoriaPostulanteActionPerformed
+        cargoTabla(false);
+    }//GEN-LAST:event_butResetHistoriaPostulanteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butBuscarHistoriaPostulante;
+    private javax.swing.JButton butResetHistoriaPostulante;
     private javax.swing.JLabel etiqAModificarCedulaHistoriaPostulante;
     private javax.swing.JLabel etiqAModificarDireccionHistoriaPostulante;
     private javax.swing.JLabel etiqAModificarFormatoHistoriaPostulante;
@@ -356,7 +375,7 @@ public class ventanaHistoriaPostulante extends javax.swing.JFrame implements Obs
                 System.out.println("no esta en la lista");
                 cargoTodoVacio();
             }
-            cargoTabla();
+            cargoTabla(true);
     }
     
     public void cargoTodoVacio(){
@@ -369,10 +388,7 @@ public class ventanaHistoriaPostulante extends javax.swing.JFrame implements Obs
         etiqAModificarMailHistoriaPostulante.setText("");
         etiqAModificarLinkedinHistoriaPostulante.setText("");
         etiqAModificarFormatoHistoriaPostulante.setText("");
-        DefaultTableModel model = (DefaultTableModel) tablaEntrevistasHistoriaPostulante.getModel();
-        while (model.getRowCount() > 0) {
-            model.removeRow(0);
-        }
+        
     }
     public void cargarDatosPostulante(Postulante unPostulante){
             etiqAModificarNombreHistoriaPostulante.setText(unPostulante.getNombre());
@@ -385,15 +401,22 @@ public class ventanaHistoriaPostulante extends javax.swing.JFrame implements Obs
             listExperienciasHistoriaPostulante.setListData(unPostulante.darDatosDelHash().toArray());
             this.post = unPostulante;
     }
-    public void cargoTabla(){
-        String palabraABuscar=txtBuscarHistoriaPostulante.getText();
+    public void cargoTabla(Boolean queHacer){
         DefaultTableModel model = (DefaultTableModel) tablaEntrevistasHistoriaPostulante.getModel();
+        if (queHacer){
+        String palabraABuscar=txtBuscarHistoriaPostulante.getText();
         model.setRowCount(0);
-        ArrayList<Entrevista> entrevistasDelPostulante = modelo.getPostulantesFiltradosPorEntrevistaPuntajeCreciente(post); 
+        ArrayList<Entrevista> entrevistasDelPostulante = modelo.getPostulantesFiltradosPorEntrevistaNumeroCreciente(post); 
         for (Entrevista entrevis : entrevistasDelPostulante) {
             String comentariosColor=entrevis.comentarioConColor(palabraABuscar);
             Object[] fila = {entrevis.getNumeroCorrelativo(), entrevis.getEntrevistador(), entrevis.getPuntaje(), comentariosColor};
             model.addRow(fila);
         }
+        }else{
+            while (model.getRowCount() > 0) {
+                model.removeRow(0);
+            }
+        }
+        
     }
 }

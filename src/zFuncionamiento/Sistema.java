@@ -234,7 +234,7 @@ public class Sistema extends Observable implements Serializable {
         return listaADevolver;
     }
     
-    public ArrayList<Entrevista> getPostulantesFiltradosPorEntrevistaPuntajeCreciente(Postulante postulanteFiltro){
+    public ArrayList<Entrevista> getPostulantesFiltradosPorEntrevistaNumeroCreciente(Postulante postulanteFiltro){
         ArrayList<Entrevista> entrevistasFiltradas= new ArrayList<>();
         
         // filtro para tener una lista de las entrevistas en las que hayan participado los postulantes posibles
