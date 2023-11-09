@@ -148,7 +148,7 @@ public class ventanaSeleccionSistema extends javax.swing.JFrame {
         Puesto puesto2 = new Puesto("puesto2", "Remoto", arr2);
         sistema.agregarPuesto(puesto1);
         sistema.agregarPuesto(puesto2);
-        
+        //
         ventanaMenu ventana = new ventanaMenu(sistema);
         ventana.setVisible(true);
         }else{
