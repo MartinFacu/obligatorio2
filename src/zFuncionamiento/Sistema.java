@@ -132,10 +132,18 @@ public class Sistema extends Observable implements Serializable {
     public void eliminarUnPostulante(Postulante unPostulante) {
         postulantes.remove(unPostulante);
         // elimino las entrevistas
+        ArrayList<Entrevista>eliminados = null;
         for (Entrevista ent : this.entrevistas) {
             if (ent.getPostulante().equals(unPostulante)) {
-                this.entrevistas.remove(unPostulante);
+                eliminados.add(ent);
             }
+        }
+        try{
+            for(Entrevista ent2 : eliminados){
+                this.entrevistas.remove(ent2);
+            }
+        }catch(NullPointerException e){
+            
         }
         notificarObservers();
     }
