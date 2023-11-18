@@ -188,6 +188,8 @@ public class ventanaAltaNivel extends javax.swing.JFrame implements Observer {
     }// </editor-fold>//GEN-END:initComponents
 
     private void butCancelarAltaNivelesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butCancelarAltaNivelesActionPerformed
+        modelo.limpiarHashMap();
+        listTematicasAltaNiveles.setListData(modelo.darDatosDelHash().toArray());
         this.dispose();
     }//GEN-LAST:event_butCancelarAltaNivelesActionPerformed
 

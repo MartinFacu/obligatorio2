@@ -98,7 +98,7 @@ public class ventanaSeleccionSistema extends javax.swing.JFrame {
         Sistema sistema = new Sistema();
         if (radbutNoSeleccionSistema.isSelected()) {
             this.dispose();
-            //datos precargados para testeo
+            /*datos precargados para testeo
 
             Tematica tema1 = new Tematica("HashMapeador", "Anashee");
             Tematica tema2 = new Tematica("Javador", "Anashee222");
@@ -144,7 +144,7 @@ public class ventanaSeleccionSistema extends javax.swing.JFrame {
             Puesto puesto2 = new Puesto("puesto2", "Remoto", arr2);
             sistema.agregarPuesto(puesto1);
             sistema.agregarPuesto(puesto2);
-            //
+            */
             ventanaMenu ventana = new ventanaMenu(sistema);
             ventana.setVisible(true);
         } else {

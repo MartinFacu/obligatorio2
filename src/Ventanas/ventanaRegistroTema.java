@@ -82,7 +82,7 @@ public class ventanaRegistroTema extends javax.swing.JFrame {
         String nombre = txtNombreRegTematica.getText();
         Tematica tema = new Tematica(nombre, descripcion);
         modelo.agregarUnaTematica(tema);
-        JOptionPane.showMessageDialog(null, "Entrevista agregada", "Info", 1);
+        JOptionPane.showMessageDialog(null, "Tema agregado", "Info", 1);
         limpiarCampos();
     }//GEN-LAST:event_butRegistrarRegTematicaActionPerformed
 
