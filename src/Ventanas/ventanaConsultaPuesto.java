@@ -1,5 +1,5 @@
 package Ventanas;
-
+//Martin Alonso(291799) y Santiago Oliveri
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;

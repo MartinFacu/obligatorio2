@@ -1,5 +1,5 @@
 package Ventanas;
-
+//Martin Alonso(291799) y Santiago Oliveri
 import static java.lang.Integer.parseInt;
 import java.util.Observable;
 import java.util.Observer;

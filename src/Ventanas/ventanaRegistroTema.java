@@ -1,5 +1,5 @@
 package Ventanas;
-
+//Martin Alonso(291799) y Santiago Oliveri
 import javax.swing.JOptionPane;
 import zFuncionamiento.*;
 

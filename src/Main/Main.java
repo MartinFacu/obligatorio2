@@ -1,11 +1,6 @@
 package Main;
-
-import zFuncionamiento.*;
+//Martin Alonso(291799) y Santiago Oliveri
 import Ventanas.*;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.nio.file.*;
-import java.util.*;
 
 public class Main {
 
