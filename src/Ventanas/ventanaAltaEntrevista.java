@@ -188,15 +188,19 @@ public class ventanaAltaEntrevista extends javax.swing.JFrame implements Observe
     private void butAplicarAltaEntrevistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAplicarAltaEntrevistaActionPerformed
         try {
             String comentariosEntrevista = txtComentariosAltaEntevista.getText();
-            if (comentariosEntrevista.length() != 0) {
+            if (!comentariosEntrevista.isEmpty()) {
                 int puntajeEntrevista = parseInt(txtPuntajeAltaEntevista.getText());
                 Entrevistador entrevistadorSelec = (Entrevistador) listEntrevistadoresAltaEntevista.getSelectedValue();
                 Postulante postulanteSelec = (Postulante) listPostulantesAltaEntevista.getSelectedValue();
+                if(entrevistadorSelec.getCedula()!=postulanteSelec.getCedula()){
                 int numeroCorrelativo = modelo.getEntrevistas().size() + 1;
                 Entrevista entrevistaCreada = new Entrevista(entrevistadorSelec, postulanteSelec, puntajeEntrevista, comentariosEntrevista, numeroCorrelativo);
                 modelo.agregarEntrevista(entrevistaCreada);
                 JOptionPane.showMessageDialog(null, "Entrevista agregada", "Info", 1);
                 limpiarCampos();
+                }else{
+                    JOptionPane.showMessageDialog(null, "Una persona no se puede evaluar a si misma", "Error", 0);
+                }
             } else {
                 JOptionPane.showMessageDialog(null, "Relleno todos los campos por favor", "Error", 0);
             }

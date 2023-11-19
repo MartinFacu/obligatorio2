@@ -207,12 +207,16 @@ public class ventanaAltaNivel extends javax.swing.JFrame implements Observer {
     }//GEN-LAST:event_butRegistrarAltaNivelesActionPerformed
 
     private void butAgregarTematicaAltaNivelesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAgregarTematicaAltaNivelesActionPerformed
+        Integer nivelSeleccionado = (Integer) spinNivelElegidoAltaNiveles.getValue();
+        if(nivelSeleccionado<=10){
         //agarro los datos seleccionados y los agrego al hashMap
         Tematica tematicaSeleccionada = (Tematica) combTemaElegidoAltaNiveles.getSelectedItem();
-        Integer nivelSeleccionado = (Integer) spinNivelElegidoAltaNiveles.getValue();
         modelo.agregarAlHashMap(tematicaSeleccionada, nivelSeleccionado);
         //cargo la lista con los elementos del hashmap
         listTematicasAltaNiveles.setListData(modelo.darDatosDelHash().toArray());
+        }else{
+            JOptionPane.showMessageDialog(null, "El nivel no puede ser mayor a 10", "Error", 0);
+        }
     }//GEN-LAST:event_butAgregarTematicaAltaNivelesActionPerformed
 
     private void combTemaElegidoAltaNivelesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combTemaElegidoAltaNivelesActionPerformed

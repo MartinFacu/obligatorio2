@@ -266,9 +266,15 @@ public class ventanaAltaPostulante extends javax.swing.JFrame {
                         formato = "Remoto";
                     }
                 }
+                if(!unLinkedin.isEmpty() && !unMail.isEmpty() && !unaDirec.isEmpty() && !unNombre.isEmpty() && !formato.isEmpty()){
+                    if(modelo.verificacionNombrePostulantesyEntrevistadores(unaCed,unNombre,"noimporta")){
                 limpiarCampos();
                 ventanaAltaNivel ventanaAltaNivel = new ventanaAltaNivel(modelo, unLinkedin, unMail, unNumCel, unaDirec, unaCed, unNombre, formato);
                 ventanaAltaNivel.setVisible(true);
+                    }else{}
+                }else{
+                    JOptionPane.showMessageDialog(null, "Complete todos los campos por favor", "Error", 0);
+                }
 
             } else {
                 JOptionPane.showMessageDialog(null, "cedula ya registrada ", "Error", 0);

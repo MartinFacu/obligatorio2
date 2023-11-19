@@ -290,6 +290,33 @@ public class Sistema extends Observable implements Serializable {
         }
         return sirve;
     }
+    
+    public Boolean verificacionNombrePostulantesyEntrevistadores(int unaCed, String nombre, String deDondeViene) {
+        Boolean sirve=true;
+        if(deDondeViene.equals("deEntrevistador")){
+        String nombrePos = "";
+        for (Postulante pos : this.getPostulantes()) {
+            if (pos.getCedula() == unaCed) {
+                nombrePos = pos.getNombre();
+            }
+        }
+            if(!nombrePos.equals(nombre)){
+                sirve=false;
+            }
+        }else{
+        String nombreEntre = "";
+        for (Entrevistador entre : this.getEntrevistadores()) {
+            if (entre.getCedula() == unaCed) {
+                nombreEntre = entre.getNombre();
+            }
+        }
+            if(nombreEntre.equals(nombre)){
+                sirve=false;
+            }
+        }
+        
+        return sirve;
+    }
 
     public Boolean verificacionCedulaEntrevistadores(int unaCed) {
         Boolean sirve = true;

@@ -120,6 +120,11 @@ public class ventanaHistoriaPostulante extends javax.swing.JFrame implements Obs
 
         etiqAModificarLinkedinHistoriaPostulante.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         etiqAModificarLinkedinHistoriaPostulante.setText("Nombre:");
+        etiqAModificarLinkedinHistoriaPostulante.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                etiqAModificarLinkedinHistoriaPostulanteMouseClicked(evt);
+            }
+        });
 
         etiqAModificarFormatoHistoriaPostulante.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         etiqAModificarFormatoHistoriaPostulante.setText("Nombre:");
@@ -345,6 +350,15 @@ public class ventanaHistoriaPostulante extends javax.swing.JFrame implements Obs
         this.dispose();
     }//GEN-LAST:event_butSalirHistorialPostulanteActionPerformed
 
+    private void etiqAModificarLinkedinHistoriaPostulanteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_etiqAModificarLinkedinHistoriaPostulanteMouseClicked
+        try {
+        // Abre el enlace en el navegador predeterminado
+        java.awt.Desktop.getDesktop().browse(java.net.URI.create(this.url));
+    } catch (java.io.IOException e) {
+        System.out.println("Error al abrir el enlace: " + e.getMessage());
+    }
+    }//GEN-LAST:event_etiqAModificarLinkedinHistoriaPostulanteMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butBuscarHistoriaPostulante;
@@ -381,7 +395,7 @@ public class ventanaHistoriaPostulante extends javax.swing.JFrame implements Obs
     // End of variables declaration//GEN-END:variables
     private Sistema modelo;
     private Postulante post;
-    private String textoABuscar;
+    private String url;
 
     @Override
     public void update(Observable o, Object arg) {
@@ -417,7 +431,8 @@ public class ventanaHistoriaPostulante extends javax.swing.JFrame implements Obs
         etiqAModificarDireccionHistoriaPostulante.setText(unPostulante.getDireccion());
         etiqAModificarTelefonoHistoriaPostulante.setText(unPostulante.getNumCel() + "");
         etiqAModificarMailHistoriaPostulante.setText(unPostulante.getMail());
-        etiqAModificarLinkedinHistoriaPostulante.setText(unPostulante.getLinkedin());
+        this.url=unPostulante.getLinkedin();
+        etiqAModificarLinkedinHistoriaPostulante.setText("<html><a href=" +this.url + "'>" + this.url + "</a></html>");
         etiqAModificarFormatoHistoriaPostulante.setText(unPostulante.getFormato());
         listExperienciasHistoriaPostulante.setListData(unPostulante.darDatosDelHash().toArray());
         this.post = unPostulante;

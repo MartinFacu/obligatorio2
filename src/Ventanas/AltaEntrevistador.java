@@ -132,13 +132,24 @@ public class AltaEntrevistador extends javax.swing.JFrame {
         try {
             int ced = parseInt(txtCedulaAltaEntrevistador.getText());
             if (modelo.verificacionCedulaEntrevistadores(ced)) {
+                System.out.println("entre1");
                 String direc = txtDireccionAltaEntrevistador.getText();
                 int ingreso = parseInt(txtIngresoAltaEntrevistador.getText());
                 String nombre = txtNombreAltaEntrevistador.getText();
-                Entrevistador entrevistador = new Entrevistador(nombre, ced, direc, ingreso);
+                if(!direc.isEmpty() && !nombre.isEmpty()){
+                    System.out.println("entre2");
+                if(modelo.verificacionNombrePostulantesyEntrevistadores(ced,nombre,"deEntrevistador")){
+                    System.out.println("entre3");
+                    Entrevistador entrevistador = new Entrevistador(nombre, ced, direc, ingreso);
                 modelo.agregarEntrevistador(entrevistador);
                 JOptionPane.showMessageDialog(null, "Entrevistador agregado", "Info", 1);
                 limpiarCampos();
+                }else{
+                    JOptionPane.showMessageDialog(null, "Si un postulante y un ENtrevistador tienen misma cedula tienen que tener nombre igual", "Error", 0);
+                }
+                }else{
+                    JOptionPane.showMessageDialog(null, "Complete todos los campos por favor ", "Error", 0);
+                }
             } else {
                 JOptionPane.showMessageDialog(null, "cedula ya registrada ", "Error", 0);
             }

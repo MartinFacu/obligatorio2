@@ -80,10 +80,16 @@ public class ventanaRegistroTema extends javax.swing.JFrame {
     private void butRegistrarRegTematicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butRegistrarRegTematicaActionPerformed
         String descripcion = txtDescripcionRegTematica.getText();
         String nombre = txtNombreRegTematica.getText();
+        if(!descripcion.isEmpty() && !nombre.isEmpty()){
+            System.out.println(descripcion);
+            System.out.println(nombre);
         Tematica tema = new Tematica(nombre, descripcion);
         modelo.agregarUnaTematica(tema);
         JOptionPane.showMessageDialog(null, "Tema agregado", "Info", 1);
         limpiarCampos();
+        }else{
+            JOptionPane.showMessageDialog(null, "Complete ambos campos por favor ", "Error", 0);
+        }
     }//GEN-LAST:event_butRegistrarRegTematicaActionPerformed
 
     private void butCancelarRegTematicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butCancelarRegTematicaActionPerformed
