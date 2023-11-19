@@ -247,10 +247,14 @@ public class ventanaRegistroPuesto extends javax.swing.JFrame implements Observe
                 formato = "Remoto";
             }
         }
+        if(modelo.verificarUnicoNombrePuesto(nombre)){
         Puesto nuevoPuesto = new Puesto(nombre, formato, this.temasElegidos);
         modelo.agregarPuesto(nuevoPuesto);
-        JOptionPane.showMessageDialog(null, "Entrevista agregada", "Info", 1);
+        JOptionPane.showMessageDialog(null, "Puesto agregado", "Info", 1);
         limpiarCampos();
+        }else{
+            JOptionPane.showMessageDialog(null, "Nombre ya registrado", "Error", 0);
+        }
     }//GEN-LAST:event_butAplicarRegistroPuestoActionPerformed
 
     private void butCancelarRegistroPuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butCancelarRegistroPuestoActionPerformed

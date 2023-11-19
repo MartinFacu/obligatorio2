@@ -332,4 +332,14 @@ public class Sistema extends Observable implements Serializable {
         setChanged();
         notifyObservers();
     }
+    
+    public Boolean verificarUnicoNombrePuesto(String nombre){
+        Boolean sirve=true;
+        for(Puesto puest : this.puestos){
+            if(puest.getNombre().equals(nombre)){
+                sirve = false;
+            }
+        }
+        return sirve;
+    }
 }

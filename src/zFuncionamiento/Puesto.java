@@ -42,7 +42,7 @@ public class Puesto extends Observable implements Serializable {
 
     @Override
     public String toString() {
-        return "Puesto{" + "nombre=" + nombre + ", tipo=" + tipo + ", temas=" + temas + '}';
+        return nombre;
     }
 
 }

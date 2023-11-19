@@ -190,6 +190,7 @@ public class ventanaAltaEntrevista extends javax.swing.JFrame implements Observe
             String comentariosEntrevista = txtComentariosAltaEntevista.getText();
             if (!comentariosEntrevista.isEmpty()) {
                 int puntajeEntrevista = parseInt(txtPuntajeAltaEntevista.getText());
+                if(puntajeEntrevista<0 || puntajeEntrevista>100){
                 Entrevistador entrevistadorSelec = (Entrevistador) listEntrevistadoresAltaEntevista.getSelectedValue();
                 Postulante postulanteSelec = (Postulante) listPostulantesAltaEntevista.getSelectedValue();
                 if(entrevistadorSelec.getCedula()!=postulanteSelec.getCedula()){
@@ -198,6 +199,9 @@ public class ventanaAltaEntrevista extends javax.swing.JFrame implements Observe
                 modelo.agregarEntrevista(entrevistaCreada);
                 JOptionPane.showMessageDialog(null, "Entrevista agregada", "Info", 1);
                 limpiarCampos();
+                }else{
+                    JOptionPane.showMessageDialog(null, "Elija un puntaje entre 0 y 100", "Error", 0);
+                }
                 }else{
                     JOptionPane.showMessageDialog(null, "Una persona no se puede evaluar a si misma", "Error", 0);
                 }

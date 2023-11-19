@@ -1,6 +1,7 @@
 package Ventanas;
 //Martin Alonso(291799) y Santiago Oliveri
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
@@ -413,6 +414,7 @@ public class ventanaHistoriaPostulante extends javax.swing.JFrame implements Obs
     }
 
     public void cargoTodoVacio() {
+        Collections.sort(modelo.getPostulantes());
         listPostulantesHistoriaPostulante.setListData(modelo.getPostulantes().toArray());
         listExperienciasHistoriaPostulante.setListData(modelo.darDatosDelHash().toArray());
         etiqAModificarNombreHistoriaPostulante.setText("");

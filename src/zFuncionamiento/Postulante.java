@@ -3,7 +3,7 @@ package zFuncionamiento;
 import java.io.Serializable;
 import java.util.*;
 
-public class Postulante extends Observable implements Serializable {
+public class Postulante extends Observable implements Serializable , Comparable<Postulante> {
 
     private String nombre;
     private int cedula;
@@ -65,8 +65,10 @@ public class Postulante extends Observable implements Serializable {
 
     @Override
     public String toString() {
-        return "Postulante{" + "nombre=" + nombre + ", cedula=" + cedula + ", direccion=" + direccion + ", formato=" + formato + ", temas=" + temas + '}';
+        return "Postulante{" + "nombre=" + nombre + ", cedula=" + cedula + ", mail=" + mail + '}';
     }
+
+    
 
     public ArrayList<String> darDatosDelHash() {
         System.out.println("entre a : darDatosDelHash Postulante");
@@ -79,6 +81,12 @@ public class Postulante extends Observable implements Serializable {
         }
         System.out.println("Sali de : darDatosDelHash");
         return lista;
+    }
+
+    @Override
+    public int compareTo(Postulante otroPostulante) {
+        // Comparar por el atributo 'cedula'
+        return Integer.compare(this.cedula, otroPostulante.cedula);
     }
 
 }
